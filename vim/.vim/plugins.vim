@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'   " Vundle plugin itself
 Plugin 'tpope/vim-vinegar'      " plugin for Vinegar
 Plugin 'scrooloose/nerdtree'
+Plugin 'ctrlpvim/ctrlp.vim'     " CtrlP plugin
 
 
 " All of your Plugins must be added before the following line
