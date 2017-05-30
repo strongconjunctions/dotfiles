@@ -12,7 +12,10 @@ Plugin 'VundleVim/Vundle.vim'   " Vundle plugin itself
 Plugin 'tpope/vim-vinegar'      " plugin for Vinegar
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'     " CtrlP plugin
-
+Plugin 'ap/vim-css-color'       " Adds actual color to CSS colors in editor
+Plugin 'davidhalter/jedi-vim'   " Python autocompletion plugin
+Plugin 'rking/ag.vim'           " Ag super-fast search plugin
+Plugin 'skwp/greplace.vim'      " Plugin for find/replace
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
