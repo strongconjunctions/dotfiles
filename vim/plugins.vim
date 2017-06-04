@@ -17,6 +17,8 @@ Plugin 'davidhalter/jedi-vim'   " Python autocompletion plugin
 Plugin 'rking/ag.vim'           " Ag super-fast search plugin
 Plugin 'skwp/greplace.vim'      " Plugin for find/replace
 Plugin 'vim-airline/vim-airline'    " Status bar plugin
+Plugin 'tpope/vim-fugitive'         " A very cool Git wrapper
+Plugin 'flazz/vim-colorschemes'     " Additional Vim colorschemes
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
