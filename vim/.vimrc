@@ -154,6 +154,24 @@ nmap <c-r> :CtrlPBufTag<cr>
 " If you type ',to', it will open a new tab
 map ,to :tabedit<CR>
 
+
+" This autocommand will use our custom subroutine to execute <C-W>T 
+" on any newly opened help window, so that it would take up the entire
+" space of the window, instead of 80%, leaving 20% to the currently opened
+" file. This is just a cleaner way to view the :help file.
+augroup HelpInTabs
+    autocmd!
+    autocmd BufEnter *.txt call MaximizeHelpTab()
+augroup END
+
+" Will only apply to help files
+function! MaximizeHelpTab()
+    if &buftype == 'help'
+        " Converts the help window into a tab
+        execute "normal \<C-W>T"
+    endif
+endfunction
+
 " --------------- END ------------------- "
 
 
