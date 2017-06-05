@@ -92,8 +92,8 @@ so ~/.vim/plugins.vim       " this is a sourced link to Vundle plugin file
 
 
 " ------------ VISUALS ----------- "
-colorscheme zenburn         " or 'atom-dark-256', or 'slate', or 'Chasing_Logic'
-                            " or 'Tomorrow-Night-Eighties'
+colorscheme Spink         " or 'atom-dark-256', or 'slate', or 'Chasing_Logic'
+                            " or 'Tomorrow-Night-Eighties', or 'Zenburn'
 
 set guifont=Hack:h15        " if font has spaces, delimit with underscore
 set guioptions-=l           " to remove left handed scrollbar
@@ -234,6 +234,9 @@ set smartcase                       " Allows you to perform smart searches
 
 
 " ------------- MY CUSTOM SETTINGS --------------"
+" This adds recursive (deep directory) search of files using the :find command
+set path+=**
+
 " JSON Formatting
 map pj !python -m json.tool<CR>     " when in visual mode, if you press 'pj', it
                                     " will format your Python dict into a JSON
@@ -242,6 +245,13 @@ map xm !xmllint --format --recover -<CR>
 
 " Pathogen
 execute pathogen#infect()
+
+" Adds <...> to matching brackets list (so you can jump inside of them
+" from opening bracket to closing bracket using the % key)
+set matchpairs+=<:>
+
+" Displays all matching files after <Tab>-completing your search
+set wildmenu
 " ------------------- END ---------------------- "
 
 
@@ -307,9 +317,6 @@ com! WP call WordProcessorMode()    " this line activates word processor
                                     " mode via `WP` command
  
 " ------------------------- END ------------------------ "
-
-
-
 
 
 
