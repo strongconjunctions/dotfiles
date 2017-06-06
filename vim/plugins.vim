@@ -11,7 +11,9 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'   " Vundle plugin itself
 Plugin 'tpope/vim-vinegar'      " plugin for Vinegar
 Plugin 'scrooloose/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim'     " CtrlP plugin
+Plugin 'ctrlpvim/ctrlp.vim'     " CtrlP plugin (for fuzzy file search)
+                                " use <CTRL-p> to autocomplete a file
+
 Plugin 'ap/vim-css-color'       " Adds actual color to CSS colors in editor
 Plugin 'davidhalter/jedi-vim'   " Python autocompletion plugin
 Plugin 'rking/ag.vim'           " Ag super-fast search plugin
@@ -19,6 +21,9 @@ Plugin 'skwp/greplace.vim'      " Plugin for find/replace
 Plugin 'vim-airline/vim-airline'    " Status bar plugin
 Plugin 'tpope/vim-fugitive'         " A very cool Git wrapper
 Plugin 'flazz/vim-colorschemes'     " Additional Vim colorschemes
+Plugin 'vim-syntastic/syntastic'   " Checks language syntax via an external
+                                    " syntax checker
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

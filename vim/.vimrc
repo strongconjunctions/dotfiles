@@ -88,6 +88,11 @@ function! ShiftAndKeepVisualSelection(cmd, mode)
     endif
 endfunction
 
+
+" Dictionary word completion: Adds your local Unix English word dict
+" to Vim's word completions
+set dictionary+=/usr/share/dict/words      " autocomple using <CTRL-x><CTRL-k>
+
 " --------------------------- END -------------------------- "
 
 
@@ -180,7 +185,7 @@ nmap ,ev :tabedit $MYVIMRC<cr>
 
 
 " CTRL+r will look for buffer tags: functions, etc
-" So if your Python has like 5 functions, it will only focus on 
+" So if your Python has 5 functions, it will only focus on 
 " function names.
 nmap <c-r> :CtrlPBufTag<cr>
 
