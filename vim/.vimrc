@@ -24,7 +24,6 @@ set number                          " This activates line numbers
 
 set relativenumber                  " This sets relative line numbers
 
-
 set wildmode=list:full              " will show you a list of options when
                                     " <Tab> autocompleting, but won't actually
                                     " auto-insert them. And 'full' just gives
@@ -138,13 +137,17 @@ set linespace=15            " only works in a GUI editor (not a basic
                             " console)
 
 
-set background=dark         " sets your theme to a dark version (if exists)
+" set background=dark         " sets your theme to a dark version (if exists)
 
 set visualbell              " instead of audio bell creates a visual flash
                             " when you do something wrong
 
-set colorcolumn=80          " will create a big fat vertical line in the 80th
-                            " column to symbolize a syntactic line end
+
+" Options for a syntactic column on line 80
+highlight ColorColumn ctermbg=red
+"set colorcolumn=80
+call matchadd('ColorColumn', '\%80v', 100)
+
 
 " Changes the vertical split line from dotted to nothing
 " Alternatively you can change it to a solid line, by adding | after
