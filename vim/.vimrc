@@ -58,6 +58,14 @@ set undolevels=1000                 " how many undos you can make
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+
+" This will persist your file history between Vim sessions, allowing you to
+" undo certain steps even after you reopen the file
+if has('persistent_undo')
+    set undofile
+endif
+
 " --------------------------- END -------------------------- "
 
 
@@ -66,10 +74,10 @@ endif
 
 " ------------- WINDOW SETTINGS ------------- "
 set winwidth=84                 " if you open a vertical window, then it's max
-                                " width will be 84
+                            " width will be 84
 
 set winheight=5                 " sets the height of the window if it's not
-                                " in focus. So if you have 2 Vim windows open
+                            " in focus. So if you have 2 Vim windows open
                                 " then the one not in focus will resize to 5
                                 " lines height. And all the unfocused windows
                                 " will be reduced to 15 lines.
@@ -172,6 +180,10 @@ function! MaximizeHelpTab()
     endif
 endfunction
 
+" When you enter ',html' command, the HTML skeleton form this file
+" will be printed like a code snippet in any file you want
+nnoremap ,html :-1read $HOME/DEV/HTML/skeleton.html<CR>
+
 " --------------- END ------------------- "
 
 
@@ -252,6 +264,8 @@ set matchpairs+=<:>
 
 " Displays all matching files after <Tab>-completing your search
 set wildmenu
+
+command! MakeTags !ctags -R
 " ------------------- END ---------------------- "
 
 
