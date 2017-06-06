@@ -24,6 +24,12 @@ set number                          " This activates line numbers
 
 set relativenumber                  " This sets relative line numbers
 
+
+set wildmode=list:full              " will show you a list of options when
+                                    " <Tab> autocompleting, but won't actually
+                                    " auto-insert them. And 'full' just gives
+                                    " you the full completion
+
 "set cursorline                      " Creates an underline under the
                                     " line that you're on
 
@@ -51,7 +57,7 @@ set ignorecase                      " Do case insensitive matching
 set incsearch                       " show partial matches for a search phrase
 set nopaste                         " allows you to paste code without Vim trying to format it
 set number                          " show line numbers
-set undolevels=1000                 " how many undos you can make
+set undolevels=2000                 " how many undos you can make
 
 
 " Have Vim jump to the last position when opening a file
@@ -60,11 +66,28 @@ if has("autocmd")
 endif
 
 
+" This sets the directory where to store history files (undo files)
+set undodir=$HOME/.vim/.undo_files
+
 " This will persist your file history between Vim sessions, allowing you to
 " undo certain steps even after you reopen the file
 if has('persistent_undo')
     set undofile
 endif
+
+
+" This allows the Visual mode selection to persist after performing a command
+vmap <expr> > ShiftAndKeepVisualSelection(">", '[Vv]')
+vmap <expr> < ShiftAndKeepVisualSelection("<", '[Vv]')
+
+function! ShiftAndKeepVisualSelection(cmd, mode)
+    set nosmartindent
+    if mode() =~ '[Vv]'
+        return a:cmd . ":set smartindent\<CR>gv"
+    else
+        return a:cmd . ":set smartindent\<CR>"
+    endif
+endfunction
 
 " --------------------------- END -------------------------- "
 
