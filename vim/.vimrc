@@ -29,12 +29,17 @@ set number                          " This activates line numbers
 
 set relativenumber                  " This sets relative line numbers
 
+
+set scrolloff=5             " this will make sure that there is always at least
+                            " 5 lines between the cursor and the window as 
+                            " you're scrolling with your cursor
+
 set wildmode=list:full              " will show you a list of options when
                                     " <Tab> autocompleting, but won't actually
                                     " auto-insert them. And 'full' just gives
                                     " you the full completion
 
-"set cursorline                      " Creates an underline under the
+set cursorline                      " Creates an underline under the
                                     " line that you're on
 
 set fileencoding=utf-8              " what format the file is written in
@@ -136,8 +141,9 @@ so ~/.vim/plugins.vim       " this is a sourced link to Vundle plugin file
 
 
 " ------------ VISUALS ----------- "
-colorscheme Spink         " or 'atom-dark-256', or 'slate', or 'Chasing_Logic'
-                            " or 'Tomorrow-Night-Eighties', or 'Zenburn'
+colorscheme radicalgoodspeed      " or 'atom-dark-256', or 'slate', or 'Chasing_Logic'
+                            " or 'Tomorrow-Night-Eighties', or 'Zenburn', or
+                            " 'Spink'
 
 set guifont=Hack:h15        " if font has spaces, delimit with underscore
 set guioptions-=l           " to remove left handed scrollbar
@@ -175,67 +181,6 @@ highlight LineNr ctermbg=NONE  ctermfg=NONE
 
 
 
-
-
-" ------------ MY MAPPINGS ----------- "
-
-" Add simple highlight removal
-" if you hit ',<space>' (or '/<space>'), depending on what you set as 
-" the <Leader>, you will de-highlight all searched terms
-nmap <Leader><space> :nohlsearch<cr>
-" This will bind ':NERDTreeToggle' sidebar command to CTRL+1
-nmap <c-t> :NERDTreeToggle<cr>
-
-
-" Press ',ev' to open .vimrc in new tab for editing. When finished, save, and 
-" then run :bd to close the tab buffer
-" <cr> = Enter (it will auto-enter this command)
-nmap ,ev :tabedit $MYVIMRC<cr>      
-
-
-" CTRL+r will look for buffer tags: functions, etc
-" So if your Python has 5 functions, it will only focus on 
-" function names.
-nmap <c-r> :CtrlPBufTag<cr>
-
-
-" If you type ',to', it will open a new tab
-map ,to :tabedit<CR>
-
-
-" This autocommand will use our custom subroutine to execute <C-W>T 
-" on any newly opened help window, so that it would take up the entire
-" space of the window, instead of 80%, leaving 20% to the currently opened
-" file. This is just a cleaner way to view the :help file.
-augroup HelpInTabs
-    autocmd!
-    autocmd BufEnter *.txt call MaximizeHelpTab()
-augroup END
-
-" Will only apply to help files
-function! MaximizeHelpTab()
-    if &buftype == 'help'
-        " Converts the help window into a tab
-        execute "normal \<C-W>T"
-    endif
-endfunction
-
-" When you enter ',html' command, the HTML skeleton form this file
-" will be printed like a code snippet in any file you want
-nnoremap ,html :-1read $HOME/DEV/HTML/skeleton.html<CR>
-
-" -- HTML -- "
-" This maps <leader>c to a command that will comment out current line,
-" and this command is only possible in 'html' filetype
-autocmd Filetype html nnoremap <leader>c I<!--<esc>A--><esc>
-
-" -- PYTHON -- "
-" Will insert a comment # symbol at the start of the current line in a .py
-" file
-autocmd Filetype python nnoremap <leader>c I# <esc>
-
-
-" --------------- END ------------------- "
 
 
 
@@ -352,6 +297,13 @@ augroup END
 
 
 
+augroup JavaScriptCmds
+    autocmd!
+    set nowrap             " in case you don't want wrapping
+    setlocal background=dark
+    autocmd Filetype javascript nnoremap <leader>c I//<esc>
+augroup end
+
 
 " Returns true if paste mode is enabled
 function! HasPaste()
@@ -378,10 +330,79 @@ func! WordProcessorMode()
     setlocal linebreak 
 endfu
 
-com! WP call WordProcessorMode()    " this line activates word processor 
+command! WP call WordProcessorMode()    " this line activates word processor 
                                     " mode via `WP` command
  
 " ------------------------- END ------------------------ "
+
+
+" ------------ MY MAPPINGS ----------- "
+
+" Add simple highlight removal
+" if you hit ',<space>' (or '/<space>'), depending on what you set as 
+" the <Leader>, you will de-highlight all searched terms
+nmap <Leader><space> :nohlsearch<cr>
+" This will bind ':NERDTreeToggle' sidebar command to CTRL+1
+nmap <c-t> :NERDTreeToggle<cr>
+
+
+" Press ',ev' to open .vimrc in new tab for editing. When finished, save, and 
+" then run :bd to close the tab buffer
+" <cr> = Enter (it will auto-enter this command)
+nmap ,ev :tabedit $MYVIMRC<cr>      
+
+" Disables the arrow keys (sorry, THIS IS VIM!!!)
+" the <nop> assigns no action to all the navigation keys
+noremap <left> <nop>
+noremap <up> <nop>        
+noremap <right> <nop>    
+noremap <down> <nop>     
+
+
+" CTRL+r will look for buffer tags: functions, etc
+" So if your Python has 5 functions, it will only focus on 
+" function names.
+nmap <c-r> :CtrlPBufTag<cr>
+
+
+" If you type ',to', it will open a new tab
+map ,to :tabedit<CR>
+
+
+" This autocommand will use our custom subroutine to execute <C-W>T 
+" on any newly opened help window, so that it would take up the entire
+" space of the window, instead of 80%, leaving 20% to the currently opened
+" file. This is just a cleaner way to view the :help file.
+augroup HelpInTabs
+    autocmd!
+    autocmd BufEnter *.txt call MaximizeHelpTab()
+augroup END
+
+" Will only apply to help files
+function! MaximizeHelpTab()
+    if &buftype == 'help'
+        " Converts the help window into a tab
+        execute "normal \<C-W>T"
+    endif
+endfunction
+
+" When you enter ',html' command, the HTML skeleton form this file
+" will be printed like a code snippet in any file you want
+nnoremap ,html :-1read $HOME/DEV/HTML/skeleton.html<CR>
+
+" -- HTML -- "
+" This maps <leader>c to a command that will comment out current line,
+" and this command is only possible in 'html' filetype
+autocmd Filetype html nnoremap <leader>c I<!--<esc>A--><esc>
+autocmd Filetype html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+
+" -- PYTHON -- "
+" Will insert a comment # symbol at the start of the current line in a .py
+" file
+autocmd Filetype python nnoremap <leader>c I# <esc>
+
+
+" --------------- END ------------------- "
 
 
 
