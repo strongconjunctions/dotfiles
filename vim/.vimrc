@@ -10,6 +10,11 @@ filetype plugin on
 " --- Syntax --- ""
 syntax on
 syntax enable
+set nowrap                  " won't wrap your lines
+
+" Will make sure to properly indent HTML when opening a file, 
+" and just before saving it
+autocmd BufWritePre *.html normal gg=G
 
 
 
@@ -41,7 +46,11 @@ set noswapfile                      " Disables all swapping in Vim (that's
                                     " created when you work on a file). 
                                     " In most cases you don't need a swap file
 
-
+" Folding
+" These two option will make sure that your folds will open and close as your 
+" cursor enters and leaves the fold area.
+set foldopen=all                   
+set foldclose=all
 
 " Tab configs
 set expandtab                       " expands your Tabs into spaces
@@ -214,6 +223,17 @@ endfunction
 " When you enter ',html' command, the HTML skeleton form this file
 " will be printed like a code snippet in any file you want
 nnoremap ,html :-1read $HOME/DEV/HTML/skeleton.html<CR>
+
+" -- HTML -- "
+" This maps <leader>c to a command that will comment out current line,
+" and this command is only possible in 'html' filetype
+autocmd Filetype html nnoremap <leader>c I<!--<esc>A--><esc>
+
+" -- PYTHON -- "
+" Will insert a comment # symbol at the start of the current line in a .py
+" file
+autocmd Filetype python nnoremap <leader>c I# <esc>
+
 
 " --------------- END ------------------- "
 
