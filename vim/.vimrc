@@ -139,11 +139,10 @@ so ~/.vim/plugins.vim       " this is a sourced link to Vundle plugin file
 
 
 
-
 " ------------ VISUALS ----------- "
-colorscheme radicalgoodspeed      " or 'atom-dark-256', or 'slate', or 'Chasing_Logic'
-                            " or 'Tomorrow-Night-Eighties', or 'Zenburn', or
-                            " 'Spink'
+colorscheme radicalgoodspeed  " or 'atom-dark-256', or 'slate', or 'Chasing_Logic'
+                              " or 'Tomorrow-Night-Eighties', or 'Zenburn', or
+                              " 'Spink', or 'radicalgoodspeed'
 
 set guifont=Hack:h15        " if font has spaces, delimit with underscore
 set guioptions-=l           " to remove left handed scrollbar
@@ -251,9 +250,6 @@ map pj !python -m json.tool<CR>     " when in visual mode, if you press 'pj', it
 " XML Formatting
 map xm !xmllint --format --recover -<CR>
 
-" Pathogen
-execute pathogen#infect()
-
 " Adds <...> to matching brackets list (so you can jump inside of them
 " from opening bracket to closing bracket using the % key)
 set matchpairs+=<:>
@@ -330,9 +326,8 @@ func! WordProcessorMode()
     setlocal linebreak 
 endfu
 
-command! WP call WordProcessorMode()    " this line activates word processor 
-                                    " mode via `WP` command
- 
+command! ZP call WordProcessorMode()    " this line activates word processor 
+                                        " mode via `WP` command
 " ------------------------- END ------------------------ "
 
 
@@ -393,14 +388,16 @@ nnoremap ,html :-1read $HOME/DEV/HTML/skeleton.html<CR>
 " -- HTML -- "
 " This maps <leader>c to a command that will comment out current line,
 " and this command is only possible in 'html' filetype
-autocmd Filetype html nnoremap <leader>c I<!--<esc>A--><esc>
+autocmd Filetype html nnoremap <buffer> <leader>c I<!--<esc>A--><esc>
 autocmd Filetype html setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " -- PYTHON -- "
 " Will insert a comment # symbol at the start of the current line in a .py
 " file
-autocmd Filetype python nnoremap <leader>c I# <esc>
+autocmd Filetype python nnoremap <buffer> <leader>c I# <esc>
 
+" enable all Python syntax highlighting features
+let python_highlight_all = 1
 
 " --------------- END ------------------- "
 
