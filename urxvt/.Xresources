@@ -67,8 +67,8 @@ xscreensaver.passwd.thermometer.width:       8
 
 ! urxvt -------------------------------------------
 
-URxvt.font: xft:lekton:size=12
-URxvt.boldFont: xft:lekton:Bold:size=12
+URxvt.font: xft:lekton:size=11
+URxvt.boldFont: xft:lekton:Bold:size=11
 URxvt.letterSpace: 0
 ! Add fallback fonts as laid out in `man 1 urxvt` under "font:" in the RESOURCES section
 
@@ -92,9 +92,7 @@ URxvt.saveLines:16384
 URxvt.depth: 32
 
 ! Clickble URLs
-URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/x-www-browser
-URxvt.matcher.button: 3
 
 ! Custom colourscheme, see http://terminal.sexy/ for more ideas.
 
@@ -145,10 +143,12 @@ URxvt.color15: #ffffff
 !! MY CUSTOM SETTINGS
 
 ! Extensions (a list of them, separated by a comma)
-URxvt.perl-ext-common: fullscreen,selection
+URxvt.perl-ext-common: default,matcher,fullscreen,selection
 
 ! Setting the keybinding for 'fullscreen' extension triggered by F11
 URxvt.keysym.F11: perl:fullscreen:switch
+
+URxvt.matcher.button: 3
 
 ! do not scroll with output
 URxvt*scrollTtyOutput: false
@@ -162,8 +162,5 @@ URxvt*scrollTtyKeypress: true
 ! In urxvt, to disable the scrollback buffer for the secondary screen: 
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
-
-! This adds tabs
-URxvt.perl-ext-common: ...,tabbed,...
 
 
