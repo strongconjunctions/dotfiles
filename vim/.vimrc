@@ -31,6 +31,9 @@ set relativenumber              " This sets relative line numbers
 set scrolloff=5                 " This will make sure that there is always at 
                                 " least 5 lines between the cursor and the 
                                 " window as you're scrolling with your cursor
+set foldmethod=indent           " my foldmethod
+let g:SimpylFold_docstring_preview = 1      " preview docstrings when they're
+                                            " folded
 set scrolloff=5                 " This will make sure that there is always at 
                                 " least 5 lines between the cursor and the 
                                 " window as you're scrolling with your cursor
@@ -117,13 +120,13 @@ set dictionary+=/usr/share/dict/words      " autocomple using <CTRL-x><CTRL-k>
 
 " ------------- WINDOW SETTINGS ------------- "
 set winwidth=84                 " if you open a vertical window, then it's max
-                            " width will be 84
+                                " width will be 84
 
-set winheight=5                 " sets the height of the window if it's not
-                            " in focus. So if you have 2 Vim windows open
-                                " then the one not in focus will resize to 5
+set winheight=10                " sets the height of the window if it's not
+                                " in focus. So if you have 2 Vim windows open
+                                " then the one not in focus will resize to 10
                                 " lines height. And all the unfocused windows
-                                " will be reduced to 15 lines.
+                                " will be reduced to 10 lines.
 
 set winminheight=5
 
@@ -271,11 +274,14 @@ command! MakeTags !ctags -R
 " the right of the current one.
 set splitbelow
 set splitright
-" this maps CTRL+j to what was CTRL+w+CTRL+j
-nmap <c-j> <c-w><c-j>       
-nmap <c-k> <c-w><c-k>
-nmap <c-l> <c-w><c-l>
-nmap <c-h> <c-w><c-h>
+
+" this mapping will allow you to navigate between splits using only
+" commands like CTRL+k or CTRL+j, depending if your split is below, above
+" to the right, etc
+nnoremap <c-j> <c-w><c-j>       
+nnoremap <c-k> <c-w><c-k>
+nnoremap <c-l> <c-w><c-l>
+nnoremap <c-h> <c-w><c-h>
 " -------------------------- END ------------------------ "
 
 
@@ -383,12 +389,28 @@ nnoremap ,html :-1read $HOME/DEV/HTML/skeleton.html<CR>
 " This maps <leader>c to a command that will comment out current line,
 " and this command is only possible in 'html' filetype
 autocmd Filetype html nnoremap <buffer> <leader>c I<!--<esc>A--><esc>
-autocmd Filetype html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+
+" Specifies indentation for these file types
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
 
 " -- PYTHON -- "
 " Will insert a comment # symbol at the start of the current line in a .py
 " file
 autocmd Filetype python nnoremap <buffer> <leader>c I# <esc>
+
+" PEP-8 compliant indentation
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
 
 " enable all Python syntax highlighting features
 let python_highlight_all = 1

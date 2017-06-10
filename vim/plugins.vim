@@ -14,10 +14,12 @@ Plugin 'tpope/vim-vinegar'      " plugin for Vinegar
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'     " CtrlP plugin (for fuzzy file search)
                                 " use <CTRL-p> to autocomplete a file
-
+Plugin 'tmhedberg/SimpylFold'   " code folding (for Python)
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}   " powerline
 Plugin 'ap/vim-css-color'       " Adds actual color to CSS colors in editor
 Plugin 'davidhalter/jedi-vim'   " Python autocompletion plugin
 Plugin 'rking/ag.vim'           " Ag super-fast search plugin
+Plugin 'nvie/vim-flake8'        " PEP-8 checking for python files
 Plugin 'skwp/greplace.vim'      " Plugin for find/replace
 Plugin 'vim-airline/vim-airline'    " Status bar plugin
 
