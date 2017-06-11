@@ -26,12 +26,15 @@ set backspace=indent,eol,start
 " mapleader is very important, as it allows you to build custom mappings
 let mapleader = ','                 
 
+set hidden                      " better handles multiple buffers
+set ruler
+
 "set number                     " This activates line numbers
 set relativenumber              " This sets relative line numbers
 set scrolloff=5                 " This will make sure that there is always at 
                                 " least 5 lines between the cursor and the 
                                 " window as you're scrolling with your cursor
-set foldmethod=indent           " my foldmethod
+"set foldmethod=indent          " my foldmethod
 let g:SimpylFold_docstring_preview = 1      " preview docstrings when they're
                                             " folded
 set scrolloff=5                 " This will make sure that there is always at 
@@ -357,7 +360,7 @@ nmap ,ev :tabedit $MYVIMRC<cr>
 " CTRL+r will look for buffer tags: functions, etc
 " So if your Python has 5 functions, it will only focus on 
 " function names.
-nmap <c-r> :CtrlPBufTag<cr>
+"nmap <c-r> :CtrlPBufTag<cr>
 
 
 " If you type ',to', it will open a new tab
@@ -404,13 +407,13 @@ autocmd Filetype python nnoremap <buffer> <leader>c I# <esc>
 
 " PEP-8 compliant indentation
 au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+\ set tabstop=4
+\ set softtabstop=4
+\ set shiftwidth=4
+\ set textwidth=79
+\ set expandtab
+\ set autoindent
+\ set fileformat=unix
 
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
