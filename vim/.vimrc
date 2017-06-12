@@ -13,6 +13,9 @@ syntax enable
 set nowrap                  " won't automatically wrap lines on load
 set fo-=t                   " won't wrap lines on typing
 
+set thesaurus+=/usr/share/dict/eng_words.txt
+set thesaurus+=/usr/share/dict/words.txt
+
 " Will make sure to properly indent HTML when opening a file, 
 " and just before saving it
 autocmd BufWritePre *.html normal gg=G
@@ -328,7 +331,6 @@ func! WordProcessorMode()
     map j gj 
     map k gk
     setlocal spell spelllang=en_us 
-    set thesaurus+=/Users/sbrown/.vim/thesaurus/mthesaur.txt
     set complete+=s
     set formatprg=par
     setlocal wrap 
@@ -338,6 +340,8 @@ endfu
 command! ZP call WordProcessorMode()    " this line activates word processor 
                                         " mode via `WP` command
 " ------------------------- END ------------------------ "
+
+
 
 
 " ------------ MY MAPPINGS ----------- "
