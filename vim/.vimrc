@@ -346,6 +346,26 @@ command! ZP call WordProcessorMode()    " this line activates word processor
 
 " ------------ MY MAPPINGS ----------- "
 
+" Thesaurus autocompletion remapping from <CTRL-x><CTRL-t> to <SHIFT-TAB>
+inoremap <s-tab> <c-x><c-t>
+
+
+" Remapping of <Tab> to perform both tabbing and autocompletion
+function! TabPlusAutocomplete()
+    let col = col(".") - 1          " this checks which text column this it
+    " Here we check that either the col is 0, or we grab the current line
+    " and it's current column-1 (previous char) and we check that it's not
+    " a keyword ('\k' in Vim's syntax); so it checks if the previous character
+    " is a letter and not whitespace
+    if !col || getline(".")[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-n>"
+endfunction
+" Note that the <c-r> inserts anything from the register
+inoremap <tab> <c-r>=TabPlusAutocomplete()<cr>
+
+
 " Navigation in Insert mode
 inoremap <c-j> <c-o>j
 inoremap <c-k> <c-o>k
