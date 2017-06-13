@@ -1,6 +1,8 @@
 set nocompatible            " makes sure that you're always in Vim mode 
                             " (and not Vi)
 
+
+
 " --- Filetype --- "
 filetype on                 " correctly identifies the type of file
 filetype indent on
@@ -77,7 +79,6 @@ set shiftwidth=4
 " Other general Vim configs
 set showmatch                       " show matching brackets
 set ignorecase                      " Do case insensitive matching
-set incsearch                       " show partial matches for a search phrase
 set nopaste                         " allows you to paste code without Vim 
                                     " trying to format it
 set number                          " show line numbers
@@ -304,7 +305,6 @@ augroup autosourcing
 augroup END
 
 
-
 augroup JavaScriptCmds
     autocmd!
     set nowrap             " in case you don't want wrapping
@@ -346,6 +346,21 @@ command! ZP call WordProcessorMode()    " this line activates word processor
 
 " ------------ MY MAPPINGS ----------- "
 
+" Navigation in Insert mode
+inoremap <c-j> <c-o>j
+inoremap <c-k> <c-o>k
+inoremap <c-l> <c-o>l
+inoremap <c-h> <c-o>h
+
+
+" Disables the arrow keys (sorry, THIS IS VIM!!!)
+" the <nop> assigns no action to all the navigation keys
+noremap <left> <nop>
+noremap <up> <nop>        
+noremap <right> <nop>    
+noremap <down> <nop>     
+
+
 " Add simple highlight removal
 " if you hit ',<space>' (or '/<space>'), depending on what you set as 
 " the <Leader>, you will de-highlight all searched terms
@@ -353,13 +368,16 @@ nmap <Leader><space> :nohlsearch<cr>
 " This will bind ':NERDTreeToggle' sidebar command to CTRL+1
 nmap <c-t> :NERDTreeToggle<cr>
 
+
 " Maps :sort function (for alphabetical sort)
 vnoremap <Leader>s :sort<CR>
+
 
 " Press ',ev' to open .vimrc in new tab for editing. When finished, save, and 
 " then run :bd to close the tab buffer
 " <cr> = Enter (it will auto-enter this command)
 nmap ,ev :tabedit $MYVIMRC<cr>      
+
 
 " CTRL+r will look for buffer tags: functions, etc
 " So if your Python has 5 functions, it will only focus on 
@@ -388,20 +406,23 @@ function! MaximizeHelpTab()
     endif
 endfunction
 
-" When you enter ',html' command, the HTML skeleton form this file
-" will be printed like a code snippet in any file you want
-nnoremap ,html :-1read $HOME/DEV/HTML/skeleton.html<CR>
+
 
 " -- HTML -- "
 " This maps <leader>c to a command that will comment out current line,
 " and this command is only possible in 'html' filetype
 autocmd Filetype html nnoremap <buffer> <leader>c I<!--<esc>A--><esc>
 
+" When you enter ',html' command, the HTML skeleton form this file
+" will be printed like a code snippet in any file you want
+nnoremap ,html :-1read $HOME/DEV/HTML/skeleton.html<CR>
+
 " Specifies indentation for these file types
 au BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2
     \ set softtabstop=2
     \ set shiftwidth=2
+
 
 
 " -- PYTHON -- "
@@ -423,21 +444,14 @@ au BufNewFile,BufRead *.py
 let python_highlight_all = 1
 
 
-" Navigation in Insert mode
-inoremap <c-j> <c-o>j
-inoremap <c-k> <c-o>k
-inoremap <c-l> <c-o>l
-inoremap <c-h> <c-o>h
-
-
-" Disables the arrow keys (sorry, THIS IS VIM!!!)
-" the <nop> assigns no action to all the navigation keys
-noremap <left> <nop>
-noremap <up> <nop>        
-noremap <right> <nop>    
-noremap <down> <nop>     
-
 " --------------- END ------------------- "
 
 
+
+    
+function! AddHelloToTop ()
+    normal HOhello there^[A vim user^[0
+    s/hello there/hi/
+    return "we added a message"
+endfunction
 
