@@ -1,0 +1,7 @@
+# ENVIRONMENT
+
+export PATH="/home/momus/bin:$PATH"
+export PATH="/home/momus/bin/dotfiles/bash:$PATH"
+export PATH="/home/momus/bin/shellscripts:$PATH"
+export PATH="/home/momus/bin/c_scripts:$PATH"
+export PATH="/home/momus/bin/shellscripts/lib:$PATH"

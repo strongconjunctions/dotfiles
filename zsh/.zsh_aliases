@@ -1,0 +1,49 @@
+#!/bin/zsh
+source ~/.dotfiles/zsh/.zsh_profile
+
+
+###########
+# ALIASES #
+###########
+alias c='xclip'
+alias v='xclip -o'
+
+
+# HTML Clipboards
+alias chtml='cat ~/bin/expanding-texts/html | xclip -selection clipboard'
+
+
+# List profiles
+alias ll='ls -alhF'
+alias la='ls -A'
+alias lf='ls -CF'
+alias l='ls -la'
+
+alias topcommands='history | cut -c 8-1000 | sort | uniq -c | sort -nr | less'
+
+alias ea='vim ~/bin/dotfiles/bash/.bash_aliases; source ~/bin/dotfiles/bash/.bash_aliases;'
+alias ez='vim ~/bin/dotfiles/zsh/.zsh_aliases; source ~/bin/dotfiles/zsh/.zsh_aliases;'
+
+# Open Directories w Nautilus
+alias open='nautilus'
+
+# Elinks
+alias wiki='elinks https://wikipedia.org'
+
+# Weather Report (for London, but you can change to any city)
+alias weather='curl -4 wttr.in/London'
+
+# Aptitude aliases
+alias aptg='sudo apt-get install'
+alias aptr='sudo apt-get remove'
+alias aptp='sudo apt-get purge'
+alias aptu='sudo apt-get update'
+alias aptgr='sudo apt-get upgrade'
+
+# This function creates and CDs into a directory, whose name you pass it 
+# as first argument
+mkcd () {
+    # The $1 refers to any first argument passed
+    mkdir $1
+    cd $1
+}
