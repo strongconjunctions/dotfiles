@@ -28,6 +28,12 @@ Plugin 'tpope/vim-fugitive'         " A very cool Git wrapper
 Plugin 'flazz/vim-colorschemes'     " Additional Vim colorschemes
 Plugin 'vim-syntastic/syntastic'    " Checks language syntax via an external
                                     " syntax checker
+" Snipmate and it's dependencies
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'    " Awesome text-expansion plugin
+
+" Python plugins
 Plugin 'klen/python-mode'
 Plugin 'mitsuhiko/vim-python-combined'
 Plugin 'mitsuhiko/vim-jinja'
