@@ -4,9 +4,7 @@ set nocompatible            " makes sure that you're always in Vim mode
 
 
 " --- Filetype --- "
-filetype on                 " correctly identifies the type of file
-filetype indent on
-filetype plugin on
+filetype plugin indent on
 
 
 " --- Syntax --- ""
@@ -17,11 +15,6 @@ set fo-=t                   " won't wrap lines on typing
 
 set thesaurus+=/usr/share/dict/eng_words.txt
 set thesaurus+=/usr/share/dict/words.txt
-
-" Will make sure to properly indent HTML when opening a file, 
-" and just before saving it
-autocmd BufWritePre *.html normal gg=G
-
 
 
 " -------------------- GENERAL SETTINGS -------------------- "
@@ -81,7 +74,6 @@ set showmatch                       " show matching brackets
 set ignorecase                      " Do case insensitive matching
 set nopaste                         " allows you to paste code without Vim 
                                     " trying to format it
-set number                          " show line numbers
 set undolevels=2000                 " how many undos you can make
 
 
@@ -227,8 +219,9 @@ set laststatus=2
 
 " Format the status line
 " Note that you can put a lot of things in your status bar
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ Line:\ %l/%L\ Column:\ %c\ %p%%\ %y
 " -------------- END ------------- "
 
 
@@ -393,6 +386,14 @@ nmap <c-t> :NERDTreeToggle<cr>
 vnoremap <Leader>s :sort<CR>
 
 
+" Specifies indentation for these file types
+au BufNewFile,BufRead *.js, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
+
+
 " Press ',ev' to open .vimrc in new tab for editing. When finished, save, and 
 " then run :bd to close the tab buffer
 " <cr> = Enter (it will auto-enter this command)
@@ -427,22 +428,12 @@ function! MaximizeHelpTab()
 endfunction
 
 
-
-" -- HTML -- "
-" This maps <leader>c to a command that will comment out current line,
-" and this command is only possible in 'html' filetype
-autocmd Filetype html nnoremap <buffer> <leader>c I<!--<esc>A--><esc>
-
-" When you enter ',html' command, the HTML skeleton form this file
-" will be printed like a code snippet in any file you want
-nnoremap ,html :-1read $HOME/DEV/HTML/skeleton.html<CR>
-
 " Specifies indentation for these file types
-au BufNewFile,BufRead *.js, *.html, *.css
+au BufNewFile,BufRead *.js, *.css
     \ set tabstop=2
     \ set softtabstop=2
     \ set shiftwidth=2
-
+    \ set number
 
 
 " -- PYTHON -- "
@@ -452,13 +443,13 @@ autocmd Filetype python nnoremap <buffer> <leader>c I# <esc>
 
 " PEP-8 compliant indentation
 au BufNewFile,BufRead *.py
-\ set tabstop=4
-\ set softtabstop=4
-\ set shiftwidth=4
-\ set textwidth=79
-\ set expandtab
-\ set autoindent
-\ set fileformat=unix
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
 
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
@@ -469,9 +460,4 @@ let python_highlight_all = 1
 
 
     
-function! AddHelloToTop ()
-    normal HOhello there^[A vim user^[0
-    s/hello there/hi/
-    return "we added a message"
-endfunction
 

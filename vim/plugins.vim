@@ -20,9 +20,10 @@ Plugin 'ap/vim-css-color'       " Adds actual color to CSS colors in editor
 Plugin 'davidhalter/jedi-vim'   " Python autocompletion plugin
 Plugin 'rking/ag.vim'           " Ag super-fast search plugin
 Plugin 'nvie/vim-flake8'        " PEP-8 checking for python files
+Plugin 'tpope/vim-surround'     " Surround text with parens, or tags
 Plugin 'skwp/greplace.vim'      " Plugin for find/replace
 Plugin 'vim-airline/vim-airline'    " Status bar plugin
-
+Plugin 'mileszs/ack.vim'            " Grep files in current dir for grep patterns (words, etc)
 Plugin 'tpope/vim-fugitive'         " A very cool Git wrapper
 Plugin 'flazz/vim-colorschemes'     " Additional Vim colorschemes
 Plugin 'vim-syntastic/syntastic'    " Checks language syntax via an external
@@ -31,6 +32,8 @@ Plugin 'klen/python-mode'
 Plugin 'mitsuhiko/vim-python-combined'
 Plugin 'mitsuhiko/vim-jinja'
 Plugin 'jmcantrell/vim-virtualenv'
+
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
