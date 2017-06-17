@@ -68,6 +68,11 @@ set tabstop=4
 set softtabstop=4
 set autoindent                      " same as smartindent
 set shiftwidth=4
+set shiftround                      " rounds the shift width to the closest
+                                    " possible shift width (so if your line is
+                                    " indented to 7 spaces, it will indent it 
+                                    " by 1 more to reach 8; that is if 4 is
+                                    " your default shift width)
 
 " Other general Vim configs
 set showmatch                       " show matching brackets
@@ -228,8 +233,9 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ Line:\ %l
 
 
 " ------------------ SEARCH -------------------- "
-set hlsearch                        " This highlights all instances of a searched word if
-                                    " you hit:   /<searched word> + Enter
+set hlsearch                        " This highlights all instances of a 
+                                    " searched word if you hit:   
+                                    " /<searched word> + Enter
 
 set incsearch                       " Sets the incremental search (it
                                     " auto-searches as you continue typing)
@@ -247,9 +253,15 @@ set smartcase                       " Allows you to perform smart searches
 " This adds recursive (deep directory) search of files using the :find command
 set path+=**
 
+set showcmd                         " in the bottom right corner it shows keys
+                                    " that you're typing for longer commands
+
 " JSON Formatting
-map pj !python -m json.tool<CR>     " when in visual mode, if you press 'pj', it
-                                    " will format your Python dict into a JSON
+
+" When in visual mode, if you press 'pj', it  will format your Python dict 
+" into a JSON
+map pj !python -m json.tool<CR>    
+
 " XML Formatting
 map xm !xmllint --format --recover -<CR>
 
@@ -416,24 +428,24 @@ map ,to :tabedit<CR>
 " file. This is just a cleaner way to view the :help file.
 augroup HelpInTabs
     autocmd!
-    autocmd BufEnter *.txt call MaximizeHelpTab()
+autocmd BufEnter *.txt call MaximizeHelpTab()
 augroup END
 
 " Will only apply to help files
 function! MaximizeHelpTab()
-    if &buftype == 'help'
-        " Converts the help window into a tab
-        execute "normal \<C-W>T"
-    endif
+if &buftype == 'help'
+    " Converts the help window into a tab
+    execute "normal \<C-W>T"
+endif
 endfunction
 
 
 " Specifies indentation for these file types
 au BufNewFile,BufRead *.js, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
-    \ set number
+\ set tabstop=2
+\ set softtabstop=2
+\ set shiftwidth=2
+\ set number
 
 
 " -- PYTHON -- "
@@ -443,13 +455,12 @@ autocmd Filetype python nnoremap <buffer> <leader>c I# <esc>
 
 " PEP-8 compliant indentation
 au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+\ set tabstop=4
+\ set softtabstop=4
+\ set shiftwidth=4
+\ set textwidth=79
+\ set expandtab
+\ set autoindent
 
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
