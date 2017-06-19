@@ -163,6 +163,7 @@ colorscheme cypherpunxxx  " or 'atom-dark-256', or 'slate', or 'Chasing_Logic'
                               " or 'Tomorrow-Night-Eighties', or 'Zenburn', or
                               " 'Spink', or 'radicalgoodspeed'
 
+set vb                      " sets visual bell instead of audio one
 set guifont=Hack:h15        " if font has spaces, delimit with underscore
 set guioptions-=l           " to remove left handed scrollbar
 set guioptions-=L           " this is to remove the left handed scrollbar
@@ -190,7 +191,7 @@ call matchadd('ColorColumn', '\%80v', 100)
 " Changes the vertical split line from dotted to nothing
 " Alternatively you can change it to a solid line, by adding | after
 " the \ symbol. Instead we just have an empty space after \
-"set fillchars=vert:\| 
+"set fillchars=""
 highlight VertSplit cterm=NONE ctermfg=NONE ctermbg=NONE 
 highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
 highlight Normal guifg=White guibg=Black
@@ -225,6 +226,14 @@ let g:grep_cmd_opts = '--line-numbers --noheading'
 set cryptmethod=blowfish2
 " ------------------- END ------------------- "
 
+
+
+" --------- HELP ---------- "
+
+" this will remap <CTRL-t> used to go back to the previous menu in help
+" to <CTRL-[>
+nnoremap <c-[> <c-t>
+" --------- END ----------- "
 
 
 
@@ -263,11 +272,10 @@ set smartcase                       " Allows you to perform smart searches
 " This adds recursive (deep directory) search of files using the :find command
 set path+=**
 
-set showcmd                         " in the bottom right corner it shows keys
-                                    " that you're typing for longer commands
+set showcmd                         " shows the current command in the bottom
+                                    " right corner
 
 " JSON Formatting
-
 " When in visual mode, if you press 'pj', it  will format your Python dict 
 " into a JSON
 map pj !python -m json.tool<CR>    
