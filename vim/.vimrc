@@ -3,11 +3,13 @@ set nocompatible            " makes sure that you're always in Vim mode
 
 
 
-" --- Filetype --- "
+" --- FILETYPE --- "
 filetype plugin indent on
+" --- END --- "
 
 
-" --- Syntax --- ""
+
+" --- SYNTAX --- "
 syntax on
 syntax enable
 set nowrap                  " won't automatically wrap lines on load
@@ -15,6 +17,8 @@ set fo-=t                   " won't wrap lines on typing
 
 set thesaurus+=/usr/share/dict/eng_words.txt
 set thesaurus+=/usr/share/dict/words.txt
+" --- END --- "
+
 
 
 " -------------------- GENERAL SETTINGS -------------------- "
@@ -23,6 +27,9 @@ set backspace=indent,eol,start
 " The default leader is /, but we specified comma as the default
 " mapleader is very important, as it allows you to build custom mappings
 let mapleader = ','                 
+
+set autochdir                   " automatically changes your working directory
+                                " to the file you're currently editing
 
 set hidden                      " better handles multiple buffers
 set ruler
@@ -52,6 +59,9 @@ set noswapfile                  " Disables all swapping in Vim (that's
                                 " In most cases you don't need a swap file
 set nobackup
 set nowritebackup
+
+
+set virtualedit=all
 
 
 " Folding
