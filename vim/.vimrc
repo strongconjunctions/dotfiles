@@ -227,14 +227,11 @@ set cryptmethod=blowfish2
 " ------------------- END ------------------- "
 
 
-
 " --------- HELP ---------- "
 
 " this will remap <CTRL-t> used to go back to the previous menu in help
-" to <CTRL-[>
-nnoremap <c-[> <c-t>
-" --------- END ----------- "
-
+" to <CTRL-\>
+nnoremap <c-\> <c-t>
 
 
 " --------- STATUS LINE ---------- "
