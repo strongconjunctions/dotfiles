@@ -1,5 +1,5 @@
 # my bashrc file
 
-source ~/bin/dotfiles/bash/.bash_env
-source ~/bin/dotfiles/bash/.bash_aliases
-source ~/bin/dotfiles/bash/.bash_prompt
+#source ~/.dotfiles/bash/.bash_env
+source ~/.dotfiles/bash/.bash_aliases
+source ~/.dotfiles/bash/.bash_prompt

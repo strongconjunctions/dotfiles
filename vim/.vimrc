@@ -115,9 +115,9 @@ vmap <expr> < ShiftAndKeepVisualSelection("<", '[Vv]')
 function! ShiftAndKeepVisualSelection(cmd, mode)
     set nosmartindent
     if mode() =~ '[Vv]'
-        return a:cmd . ":set smartindent\<CR>gv"
+        return a:cmd . ":set smartindent\<cr>gv"
     else
-        return a:cmd . ":set smartindent\<CR>"
+        return a:cmd . ":set smartindent\<cr>"
     endif
 endfunction
 
@@ -275,10 +275,10 @@ set showcmd                         " shows the current command in the bottom
 " JSON Formatting
 " When in visual mode, if you press 'pj', it  will format your Python dict 
 " into a JSON
-map pj !python -m json.tool<CR>    
+map pj !python -m json.tool<cr>    
 
 " XML Formatting
-map xm !xmllint --format --recover -<CR>
+map xm !xmllint --format --recover -<cr>
 
 " Adds <...> to matching brackets list (so you can jump inside of them
 " from opening bracket to closing bracket using the % key)
@@ -410,7 +410,7 @@ nmap <c-t> :NERDTreeToggle<cr>
 
 
 " Maps :sort function (for alphabetical sort)
-vnoremap <Leader>s :sort<CR>
+vnoremap <Leader>s :sort<cr>
 
 
 " Specifies indentation for these file types
@@ -434,7 +434,7 @@ nmap ,ev :tabedit $MYVIMRC<cr>
 
 
 " If you type ',to', it will open a new tab
-map ,to :tabedit<CR>
+map ,to :tabedit<cr>
 
 
 " This autocommand will use our custom subroutine to execute <C-W>T 
