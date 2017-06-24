@@ -400,17 +400,19 @@ noremap <up> <nop>
 noremap <right> <nop>    
 noremap <down> <nop>     
 
+inoremap <m-c> ddi
+
 
 " Add simple highlight removal
 " if you hit ',<space>' (or '/<space>'), depending on what you set as 
-" the <Leader>, you will de-highlight all searched terms
-nmap <Leader><space> :nohlsearch<cr>
+" the <leader>, you will de-highlight all searched terms
+nmap <leader><space> :nohlsearch<cr>
 " This will bind ':NERDTreeToggle' sidebar command to CTRL+1
 nmap <c-t> :NERDTreeToggle<cr>
 
 
 " Maps :sort function (for alphabetical sort)
-vnoremap <Leader>s :sort<cr>
+vnoremap <leader>s :sort<cr>
 
 
 " Specifies indentation for these file types
@@ -486,4 +488,18 @@ let python_highlight_all = 1
 
 
     
+" ------- ABBREVIATIONS -------- "
 
+iabbrev adn and
+iabbrev Adn And
+iabbrev taht that
+iabbrev Taht That
+iabbrev waht what
+iabbrev Waht What
+iabbrev tehn then
+iabbrev Tehn Then
+iabbrev teh the
+iabbrev Teh The
+iabbrev @@ strongconjunctions@gmail.com                
+
+" ------ END ------ "
