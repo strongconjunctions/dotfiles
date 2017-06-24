@@ -386,6 +386,14 @@ endfunction
 inoremap <tab> <c-r>=TabPlusAutocomplete()<cr>
 
 
+
+" Remap moving to the start and end of line using H and L
+nnoremap <s-h> 0
+nnoremap <s-l> $ 
+
+" A great and easy mapping to exit INSERT mode
+inoremap jk <esc>
+
 " Navigation in Insert mode
 inoremap <c-j> <c-o>j
 inoremap <c-k> <c-o>k
@@ -395,12 +403,10 @@ inoremap <c-h> <c-o>h
 
 " Disables the arrow keys (sorry, THIS IS VIM!!!)
 " the <nop> assigns no action to all the navigation keys
-noremap <left> <nop>
-noremap <up> <nop>        
-noremap <right> <nop>    
-noremap <down> <nop>     
-
-inoremap <m-c> ddi
+nnoremap <left> <nop>
+nnoremap <up> <nop>        
+nnoremap <right> <nop>    
+nnoremap <down> <nop>     
 
 
 " Add simple highlight removal
@@ -468,16 +474,16 @@ au BufNewFile,BufRead *.js, *.css
 " -- PYTHON -- "
 " Will insert a comment # symbol at the start of the current line in a .py
 " file
-autocmd Filetype python nnoremap <buffer> <leader>c I# <esc>
+autocmd FileType python nnoremap <buffer> <leader>c I# <esc>
 
 " PEP-8 compliant indentation
-au BufNewFile,BufRead *.py
+au BufRead,BufNewFile *.py,*.pyw 
 \ set tabstop=4
-\ set softtabstop=4
-\ set shiftwidth=4
-\ set textwidth=79
-\ set expandtab
-\ set autoindent
+\ softtabstop=4
+\ shiftwidth=4
+\ textwidth=79
+\ expandtab
+
 
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
