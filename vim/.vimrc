@@ -23,10 +23,10 @@ set thesaurus+=/usr/share/dict/words.txt
 
 " -------------------- GENERAL SETTINGS -------------------- "
 " Allows the use of backspace on indents, end of line, start
-set backspace=indent,eol,start     
+set backspace=indent,eol,start
 " The default leader is /, but we specified comma as the default
 " mapleader is very important, as it allows you to build custom mappings
-let mapleader = ','                 
+let mapleader = ','
 
 set autochdir                   " automatically changes your working directory
                                 " to the file you're currently editing
@@ -36,9 +36,6 @@ set ruler
 
 "set number                     " This activates line numbers
 set relativenumber              " This sets relative line numbers
-set scrolloff=5                 " This will make sure that there is always at 
-                                " least 5 lines between the cursor and the 
-                                " window as you're scrolling with your cursor
 "set foldmethod=indent          " my foldmethod
 let g:SimpylFold_docstring_preview = 1      " preview docstrings when they're
                                             " folded
@@ -90,6 +87,12 @@ set ignorecase                      " Do case insensitive matching
 set nopaste                         " allows you to paste code without Vim 
                                     " trying to format it
 set undolevels=2000                 " how many undos you can make
+
+
+" Shows you trailing whitespace, and what kinds of characters (Tabs
+" or spaces) are used
+set listchars=tab:>~,nbsp:_,trail:.
+set list
 
 
 " Have Vim jump to the last position when opening a file
@@ -330,35 +333,35 @@ augroup JavaScriptCmds
     set nowrap             " in case you don't want wrapping
     setlocal background=dark
     autocmd Filetype javascript nnoremap <leader>c I//<esc>
-augroup end
+augroup END
 
 
 " Returns true if paste mode is enabled
 function! HasPaste()
     if &paste
-        return 'PASTE MODE '
+    return 'PASTE MODE '
     en
     return ''
- endfunction
+endfunction
 
- 
+
 " Word Processor mode setup (perfect for non-program writing)
-func! WordProcessorMode() 
-    setlocal formatoptions=1 
-    setlocal noexpandtab 
+func! WordProcessorMode()
+    setlocal formatoptions=1
+    setlocal noexpandtab
     setlocal textwidth=80
     setlocal smartindent
-    map j gj 
+    map j gj
     map k gk
-    setlocal spell spelllang=en_us 
+    setlocal spell spelllang=en_us
     set complete+=s
     set formatprg=par
-    setlocal wrap 
-    setlocal linebreak 
+    setlocal wrap
+    setlocal linebreak
 endfu
 
 command! ZP call WordProcessorMode()    " this line activates word processor 
-                                        " mode via `WP` command
+                                    " mode via `WP` command
 " ------------------------- END ------------------------ "
 
 
@@ -372,24 +375,20 @@ inoremap <s-tab> <c-x><c-t>
 
 " Remapping of <Tab> to perform both tabbing and autocompletion
 function! TabPlusAutocomplete()
-    let col = col(".") - 1          " this checks which text column this it
-    " Here we check that either the col is 0, or we grab the current line
-    " and it's current column-1 (previous char) and we check that it's not
-    " a keyword ('\k' in Vim's syntax); so it checks if the previous character
-    " is a letter and not whitespace
-    if !col || getline(".")[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-n>"
+let col = col(".") - 1          " this checks which text column this is
+
+" Here we check that either the col is 0, or we grab the current line
+" and it's current column-1 (previous char) and we check that it's not
+" a keyword ('\k' in Vim's syntax); so it checks if the previous character
+" is a letter and not whitespace
+if !col || getline(".")[col - 1] !~ '\k'
+    return "\<tab>"
+else
+    return "\<c-n>"
 endfunction
 " Note that the <c-r> inserts anything from the register
 inoremap <tab> <c-r>=TabPlusAutocomplete()<cr>
 
-
-
-" Remap moving to the start and end of line using H and L
-nnoremap <s-h> 0
-nnoremap <s-l> $ 
 
 " A great and easy mapping to exit INSERT mode
 inoremap jk <esc>
@@ -403,10 +402,10 @@ inoremap <c-h> <c-o>h
 
 " Disables the arrow keys (sorry, THIS IS VIM!!!)
 " the <nop> assigns no action to all the navigation keys
-nnoremap <left> <nop>
-nnoremap <up> <nop>        
-nnoremap <right> <nop>    
-nnoremap <down> <nop>     
+nnoremap <left> :echo "ARE YOU AN IDIOT?"<cr>
+nnoremap <up> :echo "ARE YOU AN IDIOT?"<cr>
+nnoremap <right> :echo "ARE YOU AN IDIOT?"<cr>
+nnoremap <down> :echo "ARE YOU AN IDIOT?"<cr>
 
 
 " Add simple highlight removal
@@ -421,18 +420,11 @@ nmap <c-t> :NERDTreeToggle<cr>
 vnoremap <leader>s :sort<cr>
 
 
-" Specifies indentation for these file types
-au BufNewFile,BufRead *.js, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
-
-
 
 " Press ',ev' to open .vimrc in new tab for editing. When finished, save, and 
 " then run :bd to close the tab buffer
 " <cr> = Enter (it will auto-enter this command)
-nmap ,ev :tabedit $MYVIMRC<cr>      
+nmap ,ev :tabedit $MYVIMRC<cr>
 
 
 " CTRL+r will look for buffer tags: functions, etc
@@ -493,7 +485,7 @@ let python_highlight_all = 1
 
 
 
-    
+
 " ------- ABBREVIATIONS -------- "
 
 iabbrev adn and
@@ -506,6 +498,14 @@ iabbrev tehn then
 iabbrev Tehn Then
 iabbrev teh the
 iabbrev Teh The
-iabbrev @@ strongconjunctions@gmail.com                
-
+iabbrev @@ strongconjunctions@gmail.com
+iabbrev wsa was
+iabbrev aws was
+iabbrev Aws Was
+iabbrev Wsa Was
+iabbrev thsi this
+iabbrev Thsi This
+iabbrev tihs this
+iabbrev thna than
+iabbrev Thna than
 " ------ END ------ "
