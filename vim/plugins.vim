@@ -33,7 +33,8 @@ Plugin 'vim-syntastic/syntastic'    " Checks language syntax via an external
                                     " syntax checker (while typing)
 Plugin 'SirVer/ultisnips'           " Advanced snippets system
 Plugin 'ervandew/supertab'          " Context-aware <tab> completion
-
+Plugin 'vimwiki/vimwiki'            " Easily create notes in Markdown and 
+                                    " preview them rendered in the browser
 
 " Snipmate and it's dependencies
 Plugin 'MarcWeber/vim-addon-mw-utils'
