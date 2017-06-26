@@ -1,19 +1,12 @@
-set nocompatible            " makes sure that you're always in Vim mode 
-                            " (and not Vi)
-
-
-
-" --- FILETYPE --- "
-filetype plugin indent on
-" --- END --- "
-
-
+set nocompatible                " makes sure that you're always in Vim mode 
+                                " (and not Vi)
 
 " --- SYNTAX --- "
+filetype plugin indent on
 syntax on
 syntax enable
-set nowrap                  " won't automatically wrap lines on load
-set fo-=t                   " won't wrap lines on typing
+set nowrap                      " won't automatically wrap lines on load
+set fo-=t                       " won't wrap lines on typing
 
 set thesaurus+=/usr/share/dict/eng_words.txt
 set thesaurus+=/usr/share/dict/words.txt
@@ -22,8 +15,10 @@ set thesaurus+=/usr/share/dict/words.txt
 
 
 " -------------------- GENERAL SETTINGS -------------------- "
+
 " Allows the use of backspace on indents, end of line, start
 set backspace=indent,eol,start
+
 " The default leader is /, but we specified comma as the default
 " mapleader is very important, as it allows you to build custom mappings
 let mapleader = ','
@@ -57,14 +52,16 @@ set noswapfile                  " Disables all swapping in Vim (that's
 set nobackup
 set nowritebackup
 
-
-set virtualedit=all
+" Allows you to position your cursor where there is no actual whitespace (so
+" pretty much everywhere in your buffer). Sometimes it's a very handy option
+" for editing a file (or even creating one).
+"set virtualedit=all
 
 
 " Folding
 " These two option will make sure that your folds will open and close as your 
 " cursor enters and leaves the fold area.
-set foldopen=all                   
+set foldopen=all
 set foldclose=all
 set foldlevel=1
 
@@ -139,7 +136,7 @@ set dictionary+=/usr/share/dict/words      " autocomple using <CTRL-x><CTRL-k>
 set winwidth=84                 " if you open a vertical window, then it's max
                                 " width will be 84
 
-set winheight=10                " sets the height of the window if it's not
+set winheight=15                " sets the height of the window if it's not
                                 " in focus. So if you have 2 Vim windows open
                                 " then the one not in focus will resize to 10
                                 " lines height. And all the unfocused windows
@@ -162,31 +159,39 @@ so ~/.vim/plugins.vim       " this is a sourced link to Vundle plugin file
 
 
 " ------------ VISUALS ----------- "
-colorscheme cypherpunxxx  " or 'atom-dark-256', or 'slate', or 'Chasing_Logic'
-                              " or 'Tomorrow-Night-Eighties', or 'Zenburn', or
-                              " 'Spink', or 'radicalgoodspeed'
+colorscheme cypherpunxxx        " or 'atom-dark-256', or 'slate', or 'Chasing_Logic'
+                                " or 'Tomorrow-Night-Eighties', or 'Zenburn', or
+                                " 'Spink', or 'radicalgoodspeed', or
+                                " 'cypherpunxxx'
 
-set vb                      " sets visual bell instead of audio one
-set guifont=Hack:h15        " if font has spaces, delimit with underscore
-set guioptions-=l           " to remove left handed scrollbar
-set guioptions-=L           " this is to remove the left handed scrollbar
+
+set vb                          " sets visual bell instead of audio one
+set guifont=Hack:h15            " if font has spaces, delimit with underscore
+set guioptions-=l               " to remove left handed scrollbar
+set guioptions-=L               " this is to remove the left handed scrollbar
 set guioptions-=r
 set guioptions-=R
+set guioptions=i
+set guioptions-=e               " No GUI tabs
+set t_CO=256                    " this forces 256 colors
+set linespace=15                " only works in a GUI editor (not a basic 
+                                " console)
 
-set guioptions-=e           " No GUI tabs
-set t_CO=256                " this forces 256 colors
-set linespace=15            " only works in a GUI editor (not a basic 
-                            " console)
+
+" set background=dark           " sets your theme to a dark version (if exists)
+
+set visualbell                  " instead of audio bell creates a visual flash
+                                " when you do something wrong
 
 
-" set background=dark         " sets your theme to a dark version (if exists)
-
-set visualbell              " instead of audio bell creates a visual flash
-                            " when you do something wrong
+" Set this to color highlight misspelled words when hitting ;s. To turn
+" the highlighting off, hit ;s again.
+nmap   ;s    :set invspell spelllang=en<cr>
 
 
 " Options for a syntactic column on line 80
 highlight ColorColumn ctermbg=red
+
 "set colorcolumn=80
 call matchadd('ColorColumn', '\%80v', 100)
 
@@ -219,6 +224,8 @@ let NERDTreeHijackNetrw = 0
 " Settings for search/replace
 set grepprg=ag
 let g:grep_cmd_opts = '--line-numbers --noheading'
+
+let g:UltiSnipsExpandTrigger="<c-t><c-u>"
 " ------------------------ END ----------------------- "
 
 
@@ -243,8 +250,6 @@ set laststatus=2
 
 " Format the status line
 " Note that you can put a lot of things in your status bar
-"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
-
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ Line:\ %l/%L\ Column:\ %c\ %p%%\ %y
 " -------------- END ------------- "
 
@@ -308,7 +313,7 @@ set splitright
 " this mapping will allow you to navigate between splits using only
 " commands like CTRL+k or CTRL+j, depending if your split is below, above
 " to the right, etc
-nnoremap <c-j> <c-w><c-j>       
+nnoremap <c-j> <c-w><c-j>
 nnoremap <c-k> <c-w><c-k>
 nnoremap <c-l> <c-w><c-l>
 nnoremap <c-h> <c-w><c-h>
@@ -361,7 +366,7 @@ func! WordProcessorMode()
 endfu
 
 command! ZP call WordProcessorMode()    " this line activates word processor 
-                                    " mode via `WP` command
+                                        " mode via `WP` command
 " ------------------------- END ------------------------ "
 
 
@@ -372,6 +377,9 @@ command! ZP call WordProcessorMode()    " this line activates word processor
 " Thesaurus autocompletion remapping from <CTRL-x><CTRL-t> to <SHIFT-TAB>
 inoremap <s-tab> <c-x><c-t>
 
+" This setting forbids you from using <backspace> in INSERT mode.
+" Learn to edit in NORMAL mode, NOT in INSERT
+"inoremap <backspace> <esc> :echo "EDIT IN NORMAL MODE, STUPID!"<cr>
 
 " Remapping of <Tab> to perform both tabbing and autocompletion
 function! TabPlusAutocomplete()
@@ -390,10 +398,10 @@ endfunction
 inoremap <tab> <c-r>=TabPlusAutocomplete()<cr>
 
 
-" A great and easy mapping to exit INSERT mode
+" A great and easy mapping to exit INSERT mode into NORMAL mode
 inoremap jk <esc>
 
-" Navigation in Insert mode
+" Navigation in INSERT  mode
 inoremap <c-j> <c-o>j
 inoremap <c-k> <c-o>k
 inoremap <c-l> <c-o>l
@@ -401,12 +409,15 @@ inoremap <c-h> <c-o>h
 
 
 " Disables the arrow keys (sorry, THIS IS VIM!!!)
-" the <nop> assigns no action to all the navigation keys
-nnoremap <left> :echo "ARE YOU AN IDIOT?"<cr>
-nnoremap <up> :echo "ARE YOU AN IDIOT?"<cr>
-nnoremap <right> :echo "ARE YOU AN IDIOT?"<cr>
-nnoremap <down> :echo "ARE YOU AN IDIOT?"<cr>
+noremap <left> :echo "ARE YOU AN IDIOT?"<cr>
+noremap <up> :echo "ARE YOU AN IDIOT?"<cr>
+noremap <right> :echo "ARE YOU AN IDIOT?"<cr>
+noremap <down> :echo "ARE YOU AN IDIOT?"<cr>
 
+inoremap <left> <esc> :echo "ARE YOU AN IDIOT?"<cr>
+inoremap <up> <esc> :echo "ARE YOU AN IDIOT?"<cr>
+inoremap <right> <esc> :echo "ARE YOU AN IDIOT?"<cr>
+inoremap <down> <esc> :echo "ARE YOU AN IDIOT?"<cr>
 
 " Add simple highlight removal
 " if you hit ',<space>' (or '/<space>'), depending on what you set as 
@@ -418,7 +429,6 @@ nmap <c-t> :NERDTreeToggle<cr>
 
 " Maps :sort function (for alphabetical sort)
 vnoremap <leader>s :sort<cr>
-
 
 
 " Press ',ev' to open .vimrc in new tab for editing. When finished, save, and 
@@ -480,7 +490,6 @@ au BufRead,BufNewFile *.py,*.pyw
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
 
-
 " --------------- END ------------------- "
 
 
@@ -489,7 +498,11 @@ let python_highlight_all = 1
 " ------- ABBREVIATIONS -------- "
 
 iabbrev adn and
+iabbrev nad and
 iabbrev Adn And
+iabbrev Nad and
+iabbrev thta that
+iabbrev Thta that
 iabbrev taht that
 iabbrev Taht That
 iabbrev waht what
@@ -508,4 +521,12 @@ iabbrev Thsi This
 iabbrev tihs this
 iabbrev thna than
 iabbrev Thna than
+
+" ------ END ------ "
+
+
+" ----- SNIPPETS ----- "
+
+
+
 " ------ END ------ "
