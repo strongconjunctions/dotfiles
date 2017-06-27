@@ -52,6 +52,9 @@ set noswapfile                  " Disables all swapping in Vim (that's
 set nobackup
 set nowritebackup
 
+setlocal spell spelllang=en_us        " sets the spelling check
+
+
 " Allows you to position your cursor where there is no actual whitespace (so
 " pretty much everywhere in your buffer). Sometimes it's a very handy option
 " for editing a file (or even creating one).
@@ -521,7 +524,14 @@ iabbrev Thsi This
 iabbrev tihs this
 iabbrev thna than
 iabbrev Thna than
-
+iabbrev anme name
+iabbrev Anme Name
+iabbrev anem name
+iabbrev Anem Name
+iabbrev anme name
+iabbrev Anme Name
+iabbrev aenm name
+iabbrev Aenm Name
 " ------ END ------ "
 
 
@@ -530,3 +540,49 @@ iabbrev Thna than
 
 
 " ------ END ------ "
+
+
+" -------- NON-VUNDLE PLUGINS --------- "
+
+
+" Spelling error fixer plugin: Fixes the last misspelled word before the cursor
+function! FixLastSpellingError()
+    normal! ma[s1z=`a
+endfunction
+
+nnoremap <leader>sp :call FixLastSpellingError()<cr>    " calls the function
+nnoremap <leader>sop :source %<cr>          " sources the file
+
+
+" This plugin moves lines to the top of the list
+" --------------- END ----------------- "
+
+
+function! MoveEm(position)
+    let saved_cursor = getpos(".")
+    let prev_blank_line = search('^$', 'bn')
+    let target_line = prev_blank_line + a:position - 1
+    execute 'move ' . target_line
+    call setpos('.', saved_cursor)
+endfunction
+
+" Allows you to choose actual positions from 1-9 in the line list via m1, m2,
+" etc. For example, if you want to move your line to line 2 from the top of
+" this paragraph, use: m2
+for position in range(1, 9)
+    execute 'nnoremap m' . position . ' :call MoveEm(' . position . ')<cr>'
+endfor
+
+
+" My plugin for turning lines into a bulleted list
+function! BulletList()
+    let l:line = getline(line("."))
+    if l:line =~ '^\s*$'
+        return
+    else
+        normal! I* 
+    endif
+endfunction
+
+nnoremap <leader>bl :call BulletList()<cr>
+vnoremap <leader>bl :call BulletList()<cr>
