@@ -380,6 +380,9 @@ command! ZP call WordProcessorMode()    " this line activates word processor
 " Thesaurus autocompletion remapping from <CTRL-x><CTRL-t> to <SHIFT-TAB>
 inoremap <s-tab> <c-x><c-t>
 
+" Remapping the save command
+nnoremap <leader>ss :w<cr>
+
 " This setting forbids you from using <backspace> in INSERT mode.
 " Learn to edit in NORMAL mode, NOT in INSERT
 "inoremap <backspace> <esc> :echo "EDIT IN NORMAL MODE, STUPID!"<cr>
@@ -437,7 +440,10 @@ vnoremap <leader>s :sort<cr>
 " Press ',ev' to open .vimrc in new tab for editing. When finished, save, and 
 " then run :bd to close the tab buffer
 " <cr> = Enter (it will auto-enter this command)
-nmap ,ev :tabedit $MYVIMRC<cr>
+nnoremap <leader>ev :vs $MYVIMRC<cr>
+
+" Quickly edit snippet files you need
+nnoremap <leader>es :vs ~/.vim/snippets/
 
 
 " CTRL+r will look for buffer tags: functions, etc
@@ -512,6 +518,8 @@ iabbrev waht what
 iabbrev Waht What
 iabbrev tehn then
 iabbrev Tehn Then
+iabbrev hte the
+iabbrev Hte The
 iabbrev teh the
 iabbrev Teh The
 iabbrev @@ strongconjunctions@gmail.com
@@ -555,9 +563,6 @@ nnoremap <leader>sop :source %<cr>          " sources the file
 
 
 " This plugin moves lines to the top of the list
-" --------------- END ----------------- "
-
-
 function! MoveEm(position)
     let saved_cursor = getpos(".")
     let prev_blank_line = search('^$', 'bn')
@@ -574,6 +579,7 @@ for position in range(1, 9)
 endfor
 
 
+
 " My plugin for turning lines into a bulleted list
 function! BulletList()
     let l:line = getline(line("."))
@@ -586,3 +592,5 @@ endfunction
 
 nnoremap <leader>bl :call BulletList()<cr>
 vnoremap <leader>bl :call BulletList()<cr>
+" --------------- END ----------------- "
+
