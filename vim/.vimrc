@@ -1,4 +1,4 @@
-set nocompatible                " makes sure that you're always in Vim mode 
+set nocompatible                " makes sure that you're always in Vim mode.
                                 " (and not Vi)
 
 " --- SYNTAX --- "
@@ -34,8 +34,8 @@ set relativenumber              " This sets relative line numbers
 "set foldmethod=indent          " my foldmethod
 let g:SimpylFold_docstring_preview = 1      " preview docstrings when they're
                                             " folded
-set scrolloff=5                 " This will make sure that there is always at 
-                                " least 5 lines between the cursor and the 
+set scrolloff=5                 " This will make sure that there is always at.
+                                " least 5 lines between the cursor and the.
                                 " window as you're scrolling with your cursor
 set wildmode=list:full          " Will show you a list of options when
                                 " <Tab> autocompleting, but won't actually
@@ -45,9 +45,10 @@ set cursorline                  " Creates an underline under the
                                 " line that you're on
 set fileencoding=utf-8          " What format the file is written in
 set encoding=utf-8              " What encoding is on the display
-set noswapfile                  " Disables all swapping in Vim (that's 
+
+set noswapfile                  " Disables all swapping in Vim (that's.
                                 " when a .swp copy of your file gets
-                                " created when you work on a file). 
+                                " created when you work on a file)..
                                 " In most cases you don't need a swap file
 set nobackup
 set nowritebackup
@@ -62,7 +63,7 @@ setlocal spell spelllang=en_us        " sets the spelling check
 
 
 " Folding
-" These two option will make sure that your folds will open and close as your 
+" These two option will make sure that your folds will open and close as your.
 " cursor enters and leaves the fold area.
 set foldopen=all
 set foldclose=all
@@ -77,16 +78,16 @@ set autoindent                      " same as smartindent
 set shiftwidth=4
 set shiftround                      " rounds the shift width to the closest
                                     " possible shift width (so if your line is
-                                    " indented to 7 spaces, it will indent it 
+                                    " indented to 7 spaces, it will indent it.
                                     " by 1 more to reach 8; that is if 4 is
                                     " your default shift width)
 
 " Other general Vim configs
 set showmatch                       " show matching brackets
 set ignorecase                      " Do case insensitive matching
-set nopaste                         " allows you to paste code without Vim 
+set nopaste                         " allows you to paste code without Vim.
                                     " trying to format it
-set undolevels=2000                 " how many undos you can make
+set undolevels=2000                 " how many undos you can make                                                                                                         
 
 
 " Shows you trailing whitespace, and what kinds of characters (Tabs
@@ -128,14 +129,12 @@ endfunction
 " Dictionary word completion: Adds your local Unix English word dict
 " to Vim's word completions
 set dictionary+=/usr/share/dict/words      " autocomple using <CTRL-x><CTRL-k>
-
 " --------------------------- END -------------------------- "
 
 
 
 
-
-" ------------- WINDOW SETTINGS ------------- "
+" ------------- WINDOW SETTINGS ------------- "                                                                                                                           
 set winwidth=84                 " if you open a vertical window, then it's max
                                 " width will be 84
 
@@ -177,7 +176,7 @@ set guioptions-=R
 set guioptions=i
 set guioptions-=e               " No GUI tabs
 set t_CO=256                    " this forces 256 colors
-set linespace=15                " only works in a GUI editor (not a basic 
+set linespace=15                " only works in a GUI editor (not a basic.
                                 " console)
 
 
@@ -203,7 +202,7 @@ call matchadd('ColorColumn', '\%80v', 100)
 " Alternatively you can change it to a solid line, by adding | after
 " the \ symbol. Instead we just have an empty space after \
 "set fillchars=""
-highlight VertSplit cterm=NONE ctermfg=NONE ctermbg=NONE 
+highlight VertSplit cterm=NONE ctermfg=NONE ctermbg=NONE
 highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
 highlight Normal guifg=White guibg=Black
 highlight LineNr ctermbg=NONE  ctermfg=NONE
@@ -211,16 +210,14 @@ highlight LineNr ctermbg=NONE  ctermfg=NONE
 
 
 
-
-
 " ------------------ PLUGIN SETTINGS ----------------- "
 " This ignores certain dirs and files when browsing thorugh them with CtrlP
-let g:ctrlp_custom_ignore = 'DS_Store\|git'  
-" This controls the position, placement, and order of search in the 
+let g:ctrlp_custom_ignore = 'DS_Store\|git'
+" This controls the position, placement, and order of search in the.
 " drop down that opens up with CtrlP. It also limits the number of
 " results to 15.
 let g:ctrlp_match_window = "top,order:ttb,min:1,max:15,result:15"
-" With this in place, if you hit '-' you will be presented with a 
+" With this in place, if you hit '-' you will be presented with a.
 " NERDTree file structure of the current dir.
 let NERDTreeHijackNetrw = 0
 
@@ -233,11 +230,11 @@ let g:UltiSnipsExpandTrigger="<c-t><c-u>"
 
 
 
-
 " ---------------- ENCRYPTION --------------- "
 " Our default encryption method (which you can change to something else)
 set cryptmethod=blowfish2
 " ------------------- END ------------------- "
+
 
 
 " --------- HELP ---------- "
@@ -245,6 +242,7 @@ set cryptmethod=blowfish2
 " this will remap <CTRL-t> used to go back to the previous menu in help
 " to <CTRL-\>
 nnoremap <c-\> <c-t>
+
 
 
 " --------- STATUS LINE ---------- "
@@ -255,13 +253,9 @@ set laststatus=2
 " Note that you can put a lot of things in your status bar
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ Line:\ %l/%L\ Column:\ %c\ %p%%\ %y
 " -------------- END ------------- "
-
-
-
-
 " ------------------ SEARCH -------------------- "
-set hlsearch                        " This highlights all instances of a 
-                                    " searched word if you hit:   
+set hlsearch                        " This highlights all instances of a.
+                                    " searched word if you hit:...
                                     " /<searched word> + Enter
 
 set incsearch                       " Sets the incremental search (it
@@ -284,9 +278,9 @@ set showcmd                         " shows the current command in the bottom
                                     " right corner
 
 " JSON Formatting
-" When in visual mode, if you press 'pj', it  will format your Python dict 
+" When in visual mode, if you press 'pj', it  will format your Python dict.
 " into a JSON
-map pj !python -m json.tool<cr>    
+map pj !python -m json.tool<cr>....
 
 " XML Formatting
 map xm !xmllint --format --recover -<cr>
@@ -300,8 +294,6 @@ set wildmenu
 
 command! MakeTags !ctags -R
 " ------------------- END ---------------------- "
-
-
 
 
 
@@ -342,8 +334,6 @@ augroup JavaScriptCmds
     setlocal background=dark
     autocmd Filetype javascript nnoremap <leader>c I//<esc>
 augroup END
-
-
 " Returns true if paste mode is enabled
 function! HasPaste()
     if &paste
@@ -368,7 +358,7 @@ func! WordProcessorMode()
     setlocal linebreak
 endfu
 
-command! ZP call WordProcessorMode()    " this line activates word processor 
+command! ZP call WordProcessorMode()    " this line activates word processor.
                                         " mode via `WP` command
 " ------------------------- END ------------------------ "
 
@@ -379,9 +369,10 @@ command! ZP call WordProcessorMode()    " this line activates word processor
 
 " Thesaurus autocompletion remapping from <CTRL-x><CTRL-t> to <SHIFT-TAB>
 inoremap <s-tab> <c-x><c-t>
-
 " Remapping the save command
-nnoremap <leader>ss :w<cr>
+nnoremap <leader>jj :w<cr>          " save buffer in normal mode
+inoremap jj <esc> :w<cr>            " save buffer in insert mode
+
 
 " This setting forbids you from using <backspace> in INSERT mode.
 " Learn to edit in NORMAL mode, NOT in INSERT
@@ -413,7 +404,6 @@ inoremap <c-k> <c-o>k
 inoremap <c-l> <c-o>l
 inoremap <c-h> <c-o>h
 
-
 " Disables the arrow keys (sorry, THIS IS VIM!!!)
 noremap <left> :echo "ARE YOU AN IDIOT?"<cr>
 noremap <up> :echo "ARE YOU AN IDIOT?"<cr>
@@ -426,7 +416,7 @@ inoremap <right> <esc> :echo "ARE YOU AN IDIOT?"<cr>
 inoremap <down> <esc> :echo "ARE YOU AN IDIOT?"<cr>
 
 " Add simple highlight removal
-" if you hit ',<space>' (or '/<space>'), depending on what you set as 
+" if you hit ',<space>' (or '/<space>'), depending on what you set as.
 " the <leader>, you will de-highlight all searched terms
 nmap <leader><space> :nohlsearch<cr>
 " This will bind ':NERDTreeToggle' sidebar command to CTRL+1
@@ -437,7 +427,7 @@ nmap <c-t> :NERDTreeToggle<cr>
 vnoremap <leader>s :sort<cr>
 
 
-" Press ',ev' to open .vimrc in new tab for editing. When finished, save, and 
+" Press ',ev' to open .vimrc in new tab for editing. When finished, save, and.
 " then run :bd to close the tab buffer
 " <cr> = Enter (it will auto-enter this command)
 nnoremap <leader>ev :vs $MYVIMRC<cr>
@@ -447,16 +437,14 @@ nnoremap <leader>es :vs ~/.vim/snippets/
 
 
 " CTRL+r will look for buffer tags: functions, etc
-" So if your Python has 5 functions, it will only focus on 
+" So if your Python has 5 functions, it will only focus on.
 " function names.
 "nmap <c-r> :CtrlPBufTag<cr>
-
-
 " If you type ',to', it will open a new tab
 map ,to :tabedit<cr>
 
 
-" This autocommand will use our custom subroutine to execute <C-W>T 
+" This autocommand will use our custom subroutine to execute <C-W>T.
 " on any newly opened help window, so that it would take up the entire
 " space of the window, instead of 80%, leaving 20% to the currently opened
 " file. This is just a cleaner way to view the :help file.
@@ -486,9 +474,8 @@ au BufNewFile,BufRead *.js, *.css
 " Will insert a comment # symbol at the start of the current line in a .py
 " file
 autocmd FileType python nnoremap <buffer> <leader>c I# <esc>
-
 " PEP-8 compliant indentation
-au BufRead,BufNewFile *.py,*.pyw 
+au BufRead,BufNewFile *.py,*.pyw.
 \ set tabstop=4
 \ softtabstop=4
 \ shiftwidth=4
@@ -510,10 +497,22 @@ iabbrev adn and
 iabbrev nad and
 iabbrev Adn And
 iabbrev Nad and
+iabbrev saem same
+iabbrev Saem same
+iabbrev smae same
+iabbrev Smae Same
 iabbrev thta that
 iabbrev Thta that
 iabbrev taht that
 iabbrev Taht That
+iabbrev htat that
+iabbrev Htat That
+iabbrev thorugh through
+iabbrev Thorugh Through
+iabbrev Throguh Through
+iabbrev throguh through
+iabbrev thourgh through
+iabbrev Thourgh Through
 iabbrev waht what
 iabbrev Waht What
 iabbrev tehn then
@@ -527,6 +526,12 @@ iabbrev wsa was
 iabbrev aws was
 iabbrev Aws Was
 iabbrev Wsa Was
+iabbrev nto not
+iabbrev Nto not
+iabbrev whne when
+iabbrev Whne When
+iabbrev wehn when
+iabbrev Wehn When
 iabbrev thsi this
 iabbrev Thsi This
 iabbrev tihs this
@@ -543,15 +548,8 @@ iabbrev Aenm Name
 " ------ END ------ "
 
 
-" ----- SNIPPETS ----- "
-
-
-
-" ------ END ------ "
-
 
 " -------- NON-VUNDLE PLUGINS --------- "
-
 
 " Spelling error fixer plugin: Fixes the last misspelled word before the cursor
 function! FixLastSpellingError()
@@ -593,4 +591,5 @@ endfunction
 nnoremap <leader>bl :call BulletList()<cr>
 vnoremap <leader>bl :call BulletList()<cr>
 " --------------- END ----------------- "
+
 
