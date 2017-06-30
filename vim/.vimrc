@@ -167,7 +167,6 @@ colorscheme cypherpunxxx        " or 'atom-dark-256', or 'slate', or 'Chasing_Lo
                                 " 'cypherpunxxx'
 
 
-set vb                          " sets visual bell instead of audio one
 set guifont=Hack:h15            " if font has spaces, delimit with underscore
 set guioptions-=l               " to remove left handed scrollbar
 set guioptions-=L               " this is to remove the left handed scrollbar
@@ -211,12 +210,14 @@ highlight LineNr ctermbg=NONE  ctermfg=NONE
 
 
 " ------------------ PLUGIN SETTINGS ----------------- "
-" This ignores certain dirs and files when browsing thorugh them with CtrlP
+" This ignores certain dirs and files when browsing through them with CtrlP
 let g:ctrlp_custom_ignore = 'DS_Store\|git'
+
 " This controls the position, placement, and order of search in the.
 " drop down that opens up with CtrlP. It also limits the number of
 " results to 15.
 let g:ctrlp_match_window = "top,order:ttb,min:1,max:15,result:15"
+
 " With this in place, if you hit '-' you will be presented with a.
 " NERDTree file structure of the current dir.
 let NERDTreeHijackNetrw = 0
@@ -242,7 +243,7 @@ set cryptmethod=blowfish2
 " this will remap <CTRL-t> used to go back to the previous menu in help
 " to <CTRL-\>
 nnoremap <c-\> <c-t>
-
+" --------- END --------- "
 
 
 " --------- STATUS LINE ---------- "
@@ -253,6 +254,9 @@ set laststatus=2
 " Note that you can put a lot of things in your status bar
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ Line:\ %l/%L\ Column:\ %c\ %p%%\ %y
 " -------------- END ------------- "
+
+
+
 " ------------------ SEARCH -------------------- "
 set hlsearch                        " This highlights all instances of a.
                                     " searched word if you hit:...
@@ -369,10 +373,6 @@ command! ZP call WordProcessorMode()    " this line activates word processor.
 
 " Thesaurus autocompletion remapping from <CTRL-x><CTRL-t> to <SHIFT-TAB>
 inoremap <s-tab> <c-x><c-t>
-" Remapping the save command
-nnoremap <leader>jj :w<cr>          " save buffer in normal mode
-inoremap jj <esc> :w<cr>            " save buffer in insert mode
-
 
 " This setting forbids you from using <backspace> in INSERT mode.
 " Learn to edit in NORMAL mode, NOT in INSERT
@@ -380,17 +380,19 @@ inoremap jj <esc> :w<cr>            " save buffer in insert mode
 
 " Remapping of <Tab> to perform both tabbing and autocompletion
 function! TabPlusAutocomplete()
-let col = col(".") - 1          " this checks which text column this is
+    let col = col(".") - 1          " this checks which text column this is
 
-" Here we check that either the col is 0, or we grab the current line
-" and it's current column-1 (previous char) and we check that it's not
-" a keyword ('\k' in Vim's syntax); so it checks if the previous character
-" is a letter and not whitespace
-if !col || getline(".")[col - 1] !~ '\k'
-    return "\<tab>"
-else
-    return "\<c-n>"
+    " Here we check that either the col is 0, or we grab the current line
+    " and it's current column-1 (previous char) and we check that it's not
+    " a keyword ('\k' in Vim's syntax); so it checks if the previous character
+    " is a letter and not whitespace
+    if !col || getline(".")[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-n>"
 endfunction
+
+
 " Note that the <c-r> inserts anything from the register
 inoremap <tab> <c-r>=TabPlusAutocomplete()<cr>
 
@@ -403,6 +405,11 @@ inoremap <c-j> <c-o>j
 inoremap <c-k> <c-o>k
 inoremap <c-l> <c-o>l
 inoremap <c-h> <c-o>h
+
+" Originally <c-k> allows you to enter Unicode characters as digraphs,
+" but we remap it to <CTRL-e>
+inoremap <c-e> <c-k>
+
 
 " Disables the arrow keys (sorry, THIS IS VIM!!!)
 noremap <left> :echo "ARE YOU AN IDIOT?"<cr>
@@ -419,6 +426,7 @@ inoremap <down> <esc> :echo "ARE YOU AN IDIOT?"<cr>
 " if you hit ',<space>' (or '/<space>'), depending on what you set as.
 " the <leader>, you will de-highlight all searched terms
 nmap <leader><space> :nohlsearch<cr>
+
 " This will bind ':NERDTreeToggle' sidebar command to CTRL+1
 nmap <c-t> :NERDTreeToggle<cr>
 
@@ -440,8 +448,15 @@ nnoremap <leader>es :vs ~/.vim/snippets/
 " So if your Python has 5 functions, it will only focus on.
 " function names.
 "nmap <c-r> :CtrlPBufTag<cr>
+
+
 " If you type ',to', it will open a new tab
 map ,to :tabedit<cr>
+
+
+" Remapping the save command
+nnoremap <leader>jj :w<cr>          " save buffer in normal mode
+inoremap jj <esc>:w<cr>            " save buffer in insert mode
 
 
 " This autocommand will use our custom subroutine to execute <C-W>T.
@@ -482,7 +497,6 @@ au BufRead,BufNewFile *.py,*.pyw.
 \ textwidth=79
 \ expandtab
 
-
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
 
@@ -507,6 +521,20 @@ iabbrev taht that
 iabbrev Taht That
 iabbrev htat that
 iabbrev Htat That
+iabbrev fucntion function
+iabbrev Fucntion Function
+iabbrev functon function
+iabbrev Functon Function
+iabbrev fnction function
+iabbrev Fnction Function
+iabbrev fo of
+iabbrev Fo of
+iabbrev whterh whether
+iabbrev Whterh Whether
+iabbrev whethr whether
+iabbrev Whethr Whether
+iabbrev Whther Whether
+iabbrev whther whether
 iabbrev thorugh through
 iabbrev Thorugh Through
 iabbrev Throguh Through
