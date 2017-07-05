@@ -161,10 +161,10 @@ so ~/.vim/plugins.vim       " this is a sourced link to Vundle plugin file
 
 
 " ------------ VISUALS ----------- "
-colorscheme cypherpunxxx        " or 'atom-dark-256', or 'slate', or 'Chasing_Logic'
+colorscheme obsidian            " or 'atom-dark-256', or 'slate', or 'Chasing_Logic'
                                 " or 'Tomorrow-Night-Eighties', or 'Zenburn', or
                                 " 'Spink', or 'radicalgoodspeed', or
-                                " 'cypherpunxxx'
+                                " 'cypherpunxxx', or 'obsidian'
 
 
 set guifont=Hack:h15            " if font has spaces, delimit with underscore
@@ -456,7 +456,7 @@ map ,to :tabedit<cr>
 
 " Remapping the save command
 nnoremap <leader>jj :w<cr>          " save buffer in normal mode
-inoremap jj <esc>:w<cr>            " save buffer in insert mode
+inoremap jj <esc>:w<cr>             " save buffer in insert mode
 
 
 " This autocommand will use our custom subroutine to execute <C-W>T.
@@ -504,13 +504,14 @@ let python_highlight_all = 1
 
 
 
-
 " ------- ABBREVIATIONS -------- "
 
 iabbrev adn and
 iabbrev nad and
 iabbrev Adn And
 iabbrev Nad and
+iabbrev ned end
+iabbrev edn end
 iabbrev saem same
 iabbrev Saem same
 iabbrev smae same
