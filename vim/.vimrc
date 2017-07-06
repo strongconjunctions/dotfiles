@@ -161,7 +161,7 @@ so ~/.vim/plugins.vim       " this is a sourced link to Vundle plugin file
 
 
 " ------------ VISUALS ----------- "
-colorscheme obsidian            " or 'atom-dark-256', or 'slate', or 'Chasing_Logic'
+colorscheme cypherpunxxx        " or 'atom-dark-256', or 'slate', or 'Chasing_Logic'
                                 " or 'Tomorrow-Night-Eighties', or 'Zenburn', or
                                 " 'Spink', or 'radicalgoodspeed', or
                                 " 'cypherpunxxx', or 'obsidian'
@@ -187,8 +187,8 @@ set visualbell                  " instead of audio bell creates a visual flash
 
 " Set this to color highlight misspelled words when hitting ;s. To turn
 " the highlighting off, hit ;s again.
-nmap   ;s    :set invspell spelllang=en<cr>
-
+nnoremap ;s  :set invspell spelllang=en<cr>
+nnoremap <leader>zz z= 1<cr><cr>
 
 " Options for a syntactic column on line 80
 highlight ColorColumn ctermbg=red
@@ -512,7 +512,21 @@ iabbrev Adn And
 iabbrev Nad and
 iabbrev ned end
 iabbrev edn end
+iabbrev dont don't
+iabbrev Dont Don't
+iabbrev doen done
+iabbrev Doen Done
+iabbrev cahnge change
+iabbrev Cahnge Change
+iabbrev chnage change
+iabbrev Chnage Change
 iabbrev saem same
+iabbrev Tou you
+iabbrev tou you
+iabbrev wtih with
+iabbrev Wtih With
+iabbrev wiht with
+iabbrev Wiht With
 iabbrev Saem same
 iabbrev smae same
 iabbrev Smae Same
@@ -542,6 +556,8 @@ iabbrev Throguh Through
 iabbrev throguh through
 iabbrev thourgh through
 iabbrev Thourgh Through
+iabbrev first first
+iabbrev Fisrt First
 iabbrev waht what
 iabbrev Waht What
 iabbrev tehn then
@@ -566,6 +582,10 @@ iabbrev Thsi This
 iabbrev tihs this
 iabbrev thna than
 iabbrev Thna than
+iabbrev naem name
+iabbrev Naem Name
+iabbrev nmae name
+iabbrev Nmae Name
 iabbrev anme name
 iabbrev Anme Name
 iabbrev anem name
@@ -574,6 +594,10 @@ iabbrev anme name
 iabbrev Anme Name
 iabbrev aenm name
 iabbrev Aenm Name
+iabbrev fisrt first
+iabbrev First First
+iabbrev haev have
+iabbrev Haev Have
 " ------ END ------ "
 
 
