@@ -512,9 +512,15 @@ iabbrev Adn And
 iabbrev Nad and
 iabbrev ned end
 iabbrev edn end
+iabbrev menas means
+iabbrev Menas means
 iabbrev dont don't
 iabbrev Dont Don't
+iabbrev commnad command
+iabbrev Commnad Command
 iabbrev doen done
+iabbrev si is
+iabbrev Si Is
 iabbrev Doen Done
 iabbrev cahnge change
 iabbrev Cahnge Change
