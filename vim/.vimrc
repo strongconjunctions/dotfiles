@@ -522,6 +522,12 @@ iabbrev doen done
 iabbrev si is
 iabbrev Si Is
 iabbrev Doen Done
+iabbrev incldue include
+iabbrev Incldue Include
+iabbrev icnlde include
+iabbrev Icnlde Include
+iabbrev inclde include
+iabbrev Inclde Include
 iabbrev cahnge change
 iabbrev Cahnge Change
 iabbrev chnage change
