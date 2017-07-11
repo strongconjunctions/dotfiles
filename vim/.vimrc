@@ -548,6 +548,8 @@ iabbrev taht that
 iabbrev Taht That
 iabbrev htat that
 iabbrev Htat That
+iabbrev fro for
+iabbrev Fro For
 iabbrev fucntion function
 iabbrev Fucntion Function
 iabbrev functon function
@@ -610,7 +612,36 @@ iabbrev fisrt first
 iabbrev First First
 iabbrev haev have
 iabbrev Haev Have
+iabbrev fiel file
+iabbrev Fiel File
+iabbrev flie file
+iabbrev Flie File
+iabbrev fodler folder
+iabbrev Fodler Folder
+iabbrev fuction function
+iabbrev Fuction Function
 " ------ END ------ "
+
+
+"------- PROGRAMMING MAPPINGS ------- "
+inoremap () ()<esc>hli
+inoremap "" ""<esc>hli
+inoremap '' ''<esc>hli
+inoremap {} {}<esc>hli
+inoremap [] []<esc>hli
+inoremap <html <html lang="en"></html> <esc><s-f>/hi
+inoremap <body <body></body> <esc><s-f>/hi
+inoremap <head <head></head> <esc><s-f>/hi
+inoremap <h1 <h1></h1> <esc><s-f>/hi
+inoremap <title <title></title> <esc><s-f>/hi
+inoremap <h2 <h2></h2> <esc><s-f>/hi
+inoremap <div <div></div> <esc><s-f>/hi
+inoremap <b <b></b> <esc><s-f>/hi
+inoremap <p <p></p> <esc><s-f>/hi
+inoremap <!DOC <!DOCTYPE html>
+"-------- END ------- "
+
+
 
 
 
