@@ -620,7 +620,10 @@ iabbrev fodler folder
 iabbrev Fodler Folder
 iabbrev fuction function
 iabbrev Fuction Function
+iabbrev shoudl should
+iabbrev Shoudl Should
 " ------ END ------ "
+
 
 
 "------- PROGRAMMING MAPPINGS ------- "
@@ -629,9 +632,13 @@ inoremap "" ""<esc>hli
 inoremap '' ''<esc>hli
 inoremap {} {}<esc>hli
 inoremap [] []<esc>hli
+inoremap <> <><esc>hli
 inoremap <html <html lang="en"></html> <esc><s-f>/hi
 inoremap <body <body></body> <esc><s-f>/hi
 inoremap <head <head></head> <esc><s-f>/hi
+inoremap <li <li></li> <esc><s-f>/hi
+inoremap <ul <ul></ul> <esc><s-f>/hi
+inoremap <a <a></a> <esc><s-f>/hi
 inoremap <h1 <h1></h1> <esc><s-f>/hi
 inoremap <title <title></title> <esc><s-f>/hi
 inoremap <h2 <h2></h2> <esc><s-f>/hi
@@ -640,8 +647,6 @@ inoremap <b <b></b> <esc><s-f>/hi
 inoremap <p <p></p> <esc><s-f>/hi
 inoremap <!DOC <!DOCTYPE html>
 "-------- END ------- "
-
-
 
 
 
