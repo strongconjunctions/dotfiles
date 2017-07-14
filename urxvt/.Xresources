@@ -1,6 +1,7 @@
 URxvt.internalBorder: 20
 URxvt.scrollBar: false
-
+URxvt.scrollStyle: rxvt
+URxvt*borderless: 1
 
 ! Background color
 URxvt*background: #2E3436
@@ -67,8 +68,8 @@ xscreensaver.passwd.thermometer.width:       8
 
 ! urxvt -------------------------------------------
 
-URxvt.font: xft:monaco:size=11
-URxvt.boldFont: xft:monaco:Bold:size=11
+URxvt.font: xft:Inconsolata\ for\ Powerline:size=11
+URxvt.boldFont: xft:Inconsolata\ for\ Powerline:Bold:size=11
 URxvt.letterSpace: 0
 ! Add fallback fonts as laid out in `man 1 urxvt` under "font:" in the RESOURCES section
 
@@ -92,7 +93,7 @@ URxvt.saveLines:16384
 URxvt.depth: 0
 
 ! Clickble URLs
-URxvt.url-launcher: /usr/bin/x-www-browser
+URxvt.url-launcher: /usr/bin/firefox-esr 
 
 ! Custom colourscheme, see http://terminal.sexy/ for more ideas.
 
@@ -142,13 +143,21 @@ URxvt.color15: #ffffff
 ! URxvt.colorIT: #71bebe
 
 
+
+
 !! MY CUSTOM SETTINGS
 
 ! Extensions (a list of them, separated by a comma)
-URxvt.perl-ext-common: default,matcher,fullscreen,selection
+URxvt.perl-ext-common: default,matcher,fullscreen,selection,pasta,\
+selection-to-clipboard,keyboard-select
 
 ! Setting the keybinding for 'fullscreen' extension triggered by F11
 URxvt.keysym.F11: perl:fullscreen:switch
+
+! Pasting
+! URxvt.keysym.Control-Shift-V:   perl:pasta:paste
+URxvt.keysym.C-v: builtin-string:
+
 
 URxvt.matcher.button: 3
 
@@ -164,5 +173,13 @@ URxvt*scrollTtyKeypress: true
 ! In urxvt, to disable the scrollback buffer for the secondary screen: 
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
+
+! Copy/Paste
+! <CTRL-ALT-c> to copy to global buffer
+URxvt.keysym.C-M-c: builtin-string:
+! <CTRL-ALT-v> to paste to global buffer
+URxvt.keysym.C-M-v: builtin-string:
+
+
 
 
