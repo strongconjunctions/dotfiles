@@ -174,12 +174,10 @@ URxvt*scrollTtyKeypress: true
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 
-! Copy/Paste
-! <CTRL-ALT-c> to copy to global buffer
+! Pasting
+! URxvt.keysym.Control-Shift-V:   perl:pasta:paste
 URxvt.keysym.C-M-c: builtin-string:
-! <CTRL-ALT-v> to paste to global buffer
 URxvt.keysym.C-M-v: builtin-string:
-
 
 
 

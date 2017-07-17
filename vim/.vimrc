@@ -548,6 +548,8 @@ iabbrev taht that
 iabbrev Taht That
 iabbrev htat that
 iabbrev Htat That
+iabbrev calss class
+iabbrev Calss Class
 iabbrev fro for
 iabbrev Fro For
 iabbrev fucntion function
@@ -622,6 +624,15 @@ iabbrev fuction function
 iabbrev Fuction Function
 iabbrev shoudl should
 iabbrev Shoudl Should
+iabbrev ANd And
+iabbrev commadn command
+iabbrev Commadn Command
+iabbrev jsut just
+iabbrev jstu just
+iabbrev Jsut Just
+iabbrev Jstu Just
+iabbrev Machien Machine
+iabbrev machien machine
 " ------ END ------ "
 
 

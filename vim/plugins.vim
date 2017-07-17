@@ -33,13 +33,18 @@ Plugin 'vim-syntastic/syntastic'    " Checks language syntax via an external
                                     " syntax checker (while typing)
 Plugin 'SirVer/ultisnips'           " Advanced snippets system
 Plugin 'ervandew/supertab'          " Context-aware <tab> completion
-Plugin 'vimwiki/vimwiki'            " Easily create notes in Markdown and 
-                                    " preview them rendered in the browser
+Plugin 'vimwiki/vimwiki'            " Easily create notes in Markdown 
+Plugin 'suan/vim-instant-markdown'  " Allows you to preview markdown notes
+                                    " rendered in the browser
+Plugin 'mattn/emmet-vim'            " Emmet plugin for Vim
+
+Plugin 'tpope/vim-commentary'       " A plugin for commenting code out in
+                                    " multiple prog. languages
 
 " Snipmate and it's dependencies
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'    " Awesome text-expansion plugin
+Plugin 'garbas/vim-snipmate'        " Awesome text-expansion plugin
 
 " Python plugins
 Plugin 'klen/python-mode'
