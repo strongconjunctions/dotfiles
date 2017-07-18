@@ -31,9 +31,6 @@ set ruler
 
 "set number                     " This activates line numbers
 set relativenumber              " This sets relative line numbers
-"set foldmethod=indent          " my foldmethod
-let g:SimpylFold_docstring_preview = 1      " preview docstrings when they're
-                                            " folded
 set scrolloff=5                 " This will make sure that there is always at.
                                 " least 5 lines between the cursor and the.
                                 " window as you're scrolling with your cursor
@@ -65,9 +62,13 @@ setlocal spell spelllang=en_us        " sets the spelling check
 " Folding
 " These two option will make sure that your folds will open and close as your.
 " cursor enters and leaves the fold area.
-set foldopen=all
-set foldclose=all
-set foldlevel=1
+"set foldmethod=indent          " my foldmethod
+"let g:SimpylFold_docstring_preview = 1      " preview docstrings when they're
+                                            " folded
+"set foldopen=all
+"set foldclose=all
+"set foldlevel=1
+set nofoldenable                    " disables folding
 
 
 " Tab configs
@@ -500,6 +501,10 @@ au BufRead,BufNewFile *.py,*.pyw.
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
 
+" Creates a docstring from the first 3 quotes you type, and puts the
+" cursor in the middle
+autocmd! FileType python inoremap """ """"""<esc>hhi
+
 " --------------- END ------------------- "
 
 
@@ -636,11 +641,10 @@ iabbrev machien machine
 " ------ END ------ "
 
 
-
 "------- PROGRAMMING MAPPINGS ------- "
 inoremap () ()<esc>hli
-inoremap "" ""<esc>hli
 inoremap '' ''<esc>hli
+inoremap "" ""<esc>hli
 inoremap {} {}<esc>hli
 inoremap [] []<esc>hli
 inoremap <> <><esc>hli
