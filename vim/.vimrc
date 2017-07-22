@@ -463,6 +463,10 @@ nnoremap <leader>jj :w<cr>          " save buffer in normal mode
 inoremap jj <esc>:w<cr>             " save buffer in insert mode
 
 
+" This will jump you out of the current word, and put you in INSERT mode at the
+" end of the line
+inoremap ;; <esc><s-a>
+
 " This autocommand will use our custom subroutine to execute <C-W>T.
 " on any newly opened help window, so that it would take up the entire
 " space of the window, instead of 80%, leaving 20% to the currently opened
