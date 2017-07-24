@@ -8,7 +8,7 @@ alias v='xclip -o'
 alias chtml='cat ~/bin/expanding-texts/html | xclip -selection clipboard'
 
 # Nautilus command
-alias open='nautilus'
+alias open='nautilus'  # or thunar, depending on Ubuntu or Debian system
 
 # This is a meta alias that allows you to open this file in Vim, edit it, and 
 # then immediately source it.
@@ -46,7 +46,7 @@ alias aptu='sudo apt-get update'
 alias aptgr='sudo apt-get upgrade'
 
 # Raspberry Pi SSH Alias
-alias pishell='. $HOME/bin/ssh/pishell'
+# alias pishell='. $HOME/bin/ssh/pishell'
 
 
 
@@ -92,4 +92,10 @@ fi
                 echo "Please choose a different name for this project"
         fi
     }
+
+
+# This script makes your scripts global by making them executable and adding
+# them to global path
+# 'mgs' for 'make global script'
+alias mgs='$HOME/.dotfiles/shellscripts/make_global_script.sh'
 

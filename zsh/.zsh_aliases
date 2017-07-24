@@ -25,7 +25,7 @@ alias ea='vim ~/bin/dotfiles/bash/.bash_aliases; source ~/bin/dotfiles/bash/.bas
 alias ez='vim ~/bin/dotfiles/zsh/.zsh_aliases; source ~/bin/dotfiles/zsh/.zsh_aliases;'
 
 # Open Directories w Nautilus
-alias open='nautilus'
+alias open='nautilus'    # or thunar, depending on whether its Ubuntu or Debian
 
 # Elinks
 alias wiki='elinks https://wikipedia.org'
@@ -47,3 +47,6 @@ mkcd () {
     mkdir $1
     cd $1
 }
+
+
+

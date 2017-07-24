@@ -1,4 +1,6 @@
-#export PATH="~/bin:$PATH"
-#export PATH="~/bin/dotfiles/bash:$PATH"
-#export PATH="~/bin/shellscripts:$PATH"
-#export PATH="~/bin/c_scripts:$PATH"
+export PATH="~/.dotfiles/bash/.bashrc/:$PATH"
+export PATH="~/.dotfiles/bash/.bash_profile:$PATH"
+export PATH="~/.dotfiles/bash/.bash_aliases:$PATH"
+export PATH="~/.dotfiles/shellscripts/make_global_script.sh:$PATH"
+
+
