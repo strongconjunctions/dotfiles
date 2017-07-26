@@ -31,6 +31,7 @@ set ruler
 
 "set number                     " This activates line numbers
 set relativenumber              " This sets relative line numbers
+se nofoldenable                 " disables folding
 "set foldmethod=indent          " my foldmethod
 let g:SimpylFold_docstring_preview = 1      " preview docstrings when they're
                                             " folded
@@ -415,6 +416,11 @@ inoremap <c-h> <c-o>h
 inoremap <c-e> <c-k>
 
 
+" Paste mode mapping. If you press <f5> it will set your buffer to paste mode,
+" which allows you to paste from the clipboard without weird indentation bugs
+:set pastetoggle=<f5>
+
+
 " Disables the arrow keys (sorry, THIS IS VIM!!!)
 noremap <left> :echo "ARE YOU AN IDIOT?"<cr>
 noremap <up> :echo "ARE YOU AN IDIOT?"<cr>
@@ -443,6 +449,9 @@ vnoremap <leader>s :sort<cr>
 " then run :bd to close the tab buffer
 " <cr> = Enter (it will auto-enter this command)
 nnoremap <leader>ev :vs $MYVIMRC<cr>
+
+nnoremap <leader>mcs :vs ~/Dropbox/TEXT_FILES/IDEs,\ TEXT_EDITORS/my_vim_cheatsheet.txt<cr>
+
 
 " Quickly edit snippet files you need
 nnoremap <leader>es :vs ~/.vim/snippets/
