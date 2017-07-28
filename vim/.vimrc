@@ -529,11 +529,17 @@ iabbrev Adn And
 iabbrev Nad and
 iabbrev ned end
 iabbrev edn end
+iabbrev cna can
+iabbrev Cna Can
 iabbrev menas means
+iabbrev measn means
+iabbrev Measn Means
 iabbrev Menas means
 iabbrev dont don't
 iabbrev Dont Don't
 iabbrev commnad command
+iabbrev Comnad Command
+iabbrev comnad command
 iabbrev Commnad Command
 iabbrev doen done
 iabbrev si is
@@ -631,6 +637,8 @@ iabbrev fisrt first
 iabbrev First First
 iabbrev haev have
 iabbrev Haev Have
+iabbrev hvae have
+iabbrev Hvae Have
 iabbrev fiel file
 iabbrev Fiel File
 iabbrev flie file
