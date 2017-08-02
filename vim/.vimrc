@@ -162,7 +162,7 @@ so ~/.vim/plugins.vim       " this is a sourced link to Vundle plugin file
 
 
 " ------------ VISUALS ----------- "
-colorscheme cypherpunxxx        " atom-dark-256', or 'slate', or 'Chasing_Logic'
+colorscheme Spink            " atom-dark-256', or 'slate', or 'Chasing_Logic'
                                 " or 'Tomorrow-Night-Eighties', or 'Zenburn', or
                                 " 'Spink', or 'radicalgoodspeed', or
                                 " 'cypherpunxxx', or 'obsidian', or 'ingretu',
@@ -450,7 +450,12 @@ vnoremap <leader>s :sort<cr>
 " <cr> = Enter (it will auto-enter this command)
 nnoremap <leader>ev :vs $MYVIMRC<cr>
 
-nnoremap <leader>mcs :vs ~/Dropbox/TEXT_FILES/IDEs,\ TEXT_EDITORS/my_vim_cheatsheet.txt<cr>
+
+" Will summon my linux command cheat sheet
+nnoremap <leader>lcs :vs ~/Dropbox/TEXT_FILES/LINUX,\ BASH,\ COMMAND_LINE/my_linux_admin_cheat_sheet.md<cr>
+
+
+nnoremap <leader>vcs :vs ~/Dropbox/TEXT_FILES/IDEs,\ TEXT_EDITORS/my_vim_cheatsheet.txt<cr>
 
 
 " Quickly edit snippet files you need
