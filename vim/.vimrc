@@ -162,7 +162,7 @@ so ~/.vim/plugins.vim       " this is a sourced link to Vundle plugin file
 
 
 " ------------ VISUALS ----------- "
-colorscheme Spink            " atom-dark-256', or 'slate', or 'Chasing_Logic'
+colorscheme antares    " atom-dark-256', or 'slate', or 'Chasing_Logic'
                                 " or 'Tomorrow-Night-Eighties', or 'Zenburn', or
                                 " 'Spink', or 'radicalgoodspeed', or
                                 " 'cypherpunxxx', or 'obsidian', or 'ingretu',
