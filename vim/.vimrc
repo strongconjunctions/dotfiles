@@ -139,7 +139,7 @@ set dictionary+=/usr/share/dict/words      " autocomple using <CTRL-x><CTRL-k>
 set winwidth=84                 " if you open a vertical window, then it's max
                                 " width will be 84
 
-set winheight=15                " sets the height of the window if it's not
+set winheight=25                " sets the height of the window if it's not
                                 " in focus. So if you have 2 Vim windows open
                                 " then the one not in focus will resize to 10
                                 " lines height. And all the unfocused windows
@@ -184,7 +184,7 @@ set linespace=15                " only works in a GUI editor (not a basic.
                                 " console)
 
 
-set background=dark             " sets your theme to a dark version (if exists)
+set background=light             " sets your theme to a dark version (if exists)
 
 set visualbell                  " instead of audio bell creates a visual flash
                                 " when you do something wrong
@@ -290,6 +290,9 @@ set showcmd                         " shows the current command in the bottom
 " When in visual mode, if you press 'pj', it  will format your Python dict.
 " into a JSON
 map pj !python -m json.tool<cr>....
+
+" RUST Custom Compilation Command
+nnoremap ,cmp :!cargo build; cargo run<CR>
 
 " XML Formatting
 map xm !xmllint --format --recover -<cr>
@@ -454,7 +457,7 @@ nnoremap <leader>ev :vs $MYVIMRC<cr>
 " Will summon my linux command cheat sheet
 nnoremap <leader>lcs :vs ~/Dropbox/TEXT_FILES/LINUX,\ BASH,\ COMMAND_LINE/my_linux_admin_cheat_sheet.md<cr>
 
-
+" Opens my Vim cheat sheet
 nnoremap <leader>vcs :vs ~/Dropbox/TEXT_FILES/IDEs,\ TEXT_EDITORS/my_vim_cheatsheet.txt<cr>
 
 
