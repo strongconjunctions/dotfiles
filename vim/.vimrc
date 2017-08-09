@@ -31,7 +31,7 @@ set ruler
 
 "set number                     " This activates line numbers
 set relativenumber              " This sets relative line numbers
-se nofoldenable                 " disables folding
+set nofoldenable                " disables folding
 "set foldmethod=indent          " my foldmethod
 let g:SimpylFold_docstring_preview = 1      " preview docstrings when they're
                                             " folded
@@ -139,13 +139,14 @@ set dictionary+=/usr/share/dict/words      " autocomple using <CTRL-x><CTRL-k>
 set winwidth=84                 " if you open a vertical window, then it's max
                                 " width will be 84
 
-set winheight=25                " sets the height of the window if it's not
+set winminwidth=30
+set winheight=5                " sets the height of the window if it's not
                                 " in focus. So if you have 2 Vim windows open
                                 " then the one not in focus will resize to 10
                                 " lines height. And all the unfocused windows
                                 " will be reduced to 10 lines.
 
-set winminheight=5
+" set winminheight=5
 
 set winheight=1000              " window height when you only have 1 window
 " ----------------- END --------------------- "
@@ -292,7 +293,7 @@ set showcmd                         " shows the current command in the bottom
 map pj !python -m json.tool<cr>....
 
 " RUST Custom Compilation Command
-nnoremap ,cmp :!cargo build; cargo run<CR>
+nnoremap ,cm :!cargo build; cargo run<CR>
 
 " XML Formatting
 map xm !xmllint --format --recover -<cr>

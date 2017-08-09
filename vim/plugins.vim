@@ -41,6 +41,8 @@ Plugin 'mattn/emmet-vim'            " Emmet plugin for Vim
 Plugin 'tpope/vim-commentary'       " A plugin for commenting code out in
                                     " multiple prog. languages
 
+Plugin 'jdkanani/vim-material-theme'  " Material theme
+
 " Snipmate and it's dependencies
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -52,7 +54,8 @@ Plugin 'mitsuhiko/vim-python-combined'
 Plugin 'mitsuhiko/vim-jinja'
 Plugin 'jmcantrell/vim-virtualenv'
 
-
+" Rust syntax highlighting
+Plugin 'rust-lang/rust.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
