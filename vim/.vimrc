@@ -245,7 +245,6 @@ set cryptmethod=blowfish2
 
 
 " --------- HELP ---------- "
-
 " this will remap <CTRL-t> used to go back to the previous menu in help
 " to <CTRL-\>
 nnoremap <c-\> <c-t>
@@ -515,6 +514,11 @@ au BufNewFile,BufRead *.js, *.css
 " Will insert a comment # symbol at the start of the current line in a .py
 " file
 autocmd FileType python nnoremap <buffer> <leader>c I# <esc>
+
+" These two commands will run Python scripts for Python 2 and 3
+autocmd FileType python nnoremap <leader>r3 :!python3 %<esc>
+autocmd FileType python nnoremap <leader>r2 :!python %<esc>
+
 " PEP-8 compliant indentation
 au BufRead,BufNewFile *.py,*.pyw.
 \ set tabstop=4
@@ -540,6 +544,8 @@ iabbrev ned end
 iabbrev edn end
 iabbrev cna can
 iabbrev Cna Can
+iabbrev liek like
+iabbrev Liek Like
 iabbrev menas means
 iabbrev measn means
 iabbrev Measn Means
@@ -564,10 +570,24 @@ iabbrev cahnge change
 iabbrev Cahnge Change
 iabbrev chnage change
 iabbrev Chnage Change
+iabbrev systme system
+iabbrev Systme System
+iabbrev sytsem system
+iabbrev Sytsem System
+iabbrev wat way
+iabbrev Wat Way
+iabbrev antoher another
+iabbrev Antoher Another
+iabbrev Anotoher Another
+iabbrev anotoher another
 iabbrev saem same
 iabbrev Saem same
 iabbrev smae same
 iabbrev Smae Same
+iabbrev ahve have
+iabbrev Ahve Have
+iabbrev aveh have
+iabbrev Aveh Have
 iabbrev Tou you
 iabbrev tou you
 iabbrev wtih with
