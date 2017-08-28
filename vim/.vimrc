@@ -163,14 +163,14 @@ so ~/.vim/plugins.vim       " this is a sourced link to Vundle plugin file
 
 
 " ------------ VISUALS ----------- "
-colorscheme antares    " atom-dark-256', or 'slate', or 'Chasing_Logic'
-                                " or 'Tomorrow-Night-Eighties', or 'Zenburn', or
+colorscheme bubblegum          " atom-dark-256', or 'slate', or 'Chasing_Logic'
+                                " or 'Tomorrow-Night-Eighties', or
                                 " 'Spink', or 'radicalgoodspeed', or
                                 " 'cypherpunxxx', or 'obsidian', or 'ingretu',
                                 " or 'material', or 'alduin', 'anderson',
                                 " 'antares', 'apprentice', 'babymate256',
-                                " 'badwolf', 'base', 'bwmenu', 
-                                " 'bubblegum', 'bluez', 'blazer'
+                                " 'badwolf', 'base', 'bubblegum', 'bluez', 
+                                " 'blazer'
 
 
 set guifont=Hack:h15            " if font has spaces, delimit with underscore
@@ -292,7 +292,8 @@ set showcmd                         " shows the current command in the bottom
 map pj !python -m json.tool<cr>....
 
 " RUST Custom Compilation Command
-nnoremap ,cm :!cargo build; cargo run<CR>
+nnoremap <leader>cr :!cargo build; cargo run<CR>
+nnoremap <leader>cm :!rustc %<CR>
 
 " XML Formatting
 map xm !xmllint --format --recover -<cr>
@@ -480,9 +481,14 @@ nnoremap <leader>jj :w<cr>          " save buffer in normal mode
 inoremap jj <esc>:w<cr>             " save buffer in insert mode
 
 
+" Breaks the line in Normal Mode
+nnoremap <leader><cr> mai<cr><esc>`a
+
+
 " This will jump you out of the current word, and put you in INSERT mode at the
 " end of the line
 inoremap ;; <esc><s-a>
+
 
 " This autocommand will use our custom subroutine to execute <C-W>T.
 " on any newly opened help window, so that it would take up the entire
@@ -544,6 +550,8 @@ iabbrev ned end
 iabbrev edn end
 iabbrev cna can
 iabbrev Cna Can
+iabbrev sya say
+iabbrev Sya Say
 iabbrev liek like
 iabbrev Liek Like
 iabbrev menas means
