@@ -163,14 +163,14 @@ so ~/.vim/plugins.vim       " this is a sourced link to Vundle plugin file
 
 
 " ------------ VISUALS ----------- "
-colorscheme bubblegum          " atom-dark-256', or 'slate', or 'Chasing_Logic'
+colorscheme spacegray          " atom-dark-256', or 'slate', or 'Chasing_Logic'
                                 " or 'Tomorrow-Night-Eighties', or
                                 " 'Spink', or 'radicalgoodspeed', or
                                 " 'cypherpunxxx', or 'obsidian', or 'ingretu',
                                 " or 'material', or 'alduin', 'anderson',
                                 " 'antares', 'apprentice', 'babymate256',
                                 " 'badwolf', 'base', 'bubblegum', 'bluez', 
-                                " 'blazer'
+                                " 'blazer', 'bubblegum'
 
 
 set guifont=Hack:h15            " if font has spaces, delimit with underscore
